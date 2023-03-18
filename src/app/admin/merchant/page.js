@@ -18,6 +18,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { Tag } from 'primereact/tag';
+///fnt2
 
 const Merchant = () =>{
     let emptyProduct = {
