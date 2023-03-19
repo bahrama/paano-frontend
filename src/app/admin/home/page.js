@@ -10,6 +10,7 @@ const AdminHome = () =>{
                 <a href="#">dasdasdasd</a>
                 <a href="#">dasdasdasd</a>
            </Panel>
+           برای داش مسعود
         </div>
     )
 }
