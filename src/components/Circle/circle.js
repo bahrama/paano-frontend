@@ -1,7 +1,7 @@
 const Circle=()=>{
     return(
         <div>
-        <button className="bg-slate-300">my button</button>
+        <button className="bg-red-600">my button</button>
         </div>
     )
 }
