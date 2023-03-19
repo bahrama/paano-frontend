@@ -19,7 +19,7 @@ import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import { Tag } from 'primereact/tag';
 ///fnt2
-
+//frnt3
 const Merchant = () =>{
     let emptyProduct = {
         id: null,
