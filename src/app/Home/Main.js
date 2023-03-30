@@ -15,7 +15,7 @@ const Main = () =>{
       <section>
       <div className='container mx-auto py-2 px-10'>
           <div class="flex flex-col sm:flex-row gap-5 items-center">
-            <div class="bg-slate-400 basis-1/3 h-96 w-full">
+            <div class="bg-fuchsia-900 basis-1/3 h-96 w-full">
               <div className='grid grid-cols-1 gap-4 place-items-center h-96'>
               <a href='#'>مبلمان خانگی</a>
               <a href='#'>مبلمان خانگی</a>
@@ -42,7 +42,7 @@ const Main = () =>{
               </div>
             <div class="bg-orange-900 basis-1/3 h-96 w-full">dssd
               </div>
-              <div class="bg-slate-600 basis-1/3 h-96 w-full">dssd
+              <div class="bg-fuchsia-900 basis-1/3 h-96 w-full">dssd
               </div>
           </div>
       </div>

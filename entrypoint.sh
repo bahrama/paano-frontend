@@ -5,6 +5,8 @@ git clone https://github.com/bahrama/paano-frontend.git
 
 cd paano-frontend/
 
+git pull origin main
+
 npm i
 
 npm run build
