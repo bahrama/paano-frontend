@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt8:entrypoint.sh added">
+    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt10:entrypoint.sh added">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Home/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Home/Main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +64,7 @@
       <workItem from="1680074042191" duration="3817000" />
       <workItem from="1680105142329" duration="5313000" />
       <workItem from="1680157379193" duration="116000" />
-      <workItem from="1680157534987" duration="669000" />
+      <workItem from="1680157534987" duration="12794000" />
     </task>
     <task id="LOCAL-00001" summary="fnt8:entrypoint.sh added">
       <created>1680082489236</created>
@@ -72,7 +73,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680082489236</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fnt10:entrypoint.sh added">
+      <created>1680158218431</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680158218431</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fnt8:entrypoint.sh added" />
-    <option name="LAST_COMMIT_MESSAGE" value="fnt8:entrypoint.sh added" />
+    <MESSAGE value="fnt10:entrypoint.sh added" />
+    <option name="LAST_COMMIT_MESSAGE" value="fnt10:entrypoint.sh added" />
   </component>
 </project>
