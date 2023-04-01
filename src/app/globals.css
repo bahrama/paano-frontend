@@ -1,3 +1,48 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Vazir";
+        src: url("../../public/fonts/Vazir.eot");
+        /* IE9 Compat Modes */
+        src: url("../../public/fonts/Vazir.eot?#iefix") format("embedded-opentype"),
+        url("../../public/fonts/Vazir.woff2") format("woff2"),
+        url("../../public/fonts/Vazir.woff") format("woff"),
+        url("../../public/fonts/Vazir.ttf") format("truetype");
+        /* Safari, Android, iOS */
+    }
+}
+
+@layer utilities{
+    .cust-pr{
+        padding-right: 79px;
+    }
+}
+
+@layer base{
+    h1{
+        font-size: 30px;
+        @apply bg-blue-900;
+    }
+    h2{
+         font-size: 20px;
+    }
+}
+
+@layer components{
+    .btn{
+        @apply bg-blue-800 mx-auto py-0.5
+    }
+    .nav-item{
+        @apply transition duration-300
+        ease-in-out text-cyan-50 bg-luster-1 p-1.5
+        rounded-lg hover:bg-blue-200 hover:text-blue-900
+    }
+    .nav-item-active{
+        @apply transition duration-300 ease-in-out
+        text-cyan-50 bg-luster-2 p-1.5 rounded-lg
+        hover:bg-blue-200  hover:text-blue-900
+    }
+}

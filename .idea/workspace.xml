@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt10:entrypoint.sh added">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt10:dockerfile added">
+      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.woff2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +38,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/paano-front&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/paano-front/public&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;
   }
 }</component>
   <component name="ReactDesignerToolWindowState">
@@ -48,6 +54,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\paano-front\public" />
       <recent name="C:\paano-front" />
     </key>
   </component>
@@ -64,7 +71,10 @@
       <workItem from="1680074042191" duration="3817000" />
       <workItem from="1680105142329" duration="5313000" />
       <workItem from="1680157379193" duration="116000" />
-      <workItem from="1680157534987" duration="12794000" />
+      <workItem from="1680157534987" duration="13221000" />
+      <workItem from="1680196900763" duration="2632000" />
+      <workItem from="1680257423651" duration="11117000" />
+      <workItem from="1680331651664" duration="6867000" />
     </task>
     <task id="LOCAL-00001" summary="fnt8:entrypoint.sh added">
       <created>1680082489236</created>
@@ -80,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680158218431</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fnt10:dockerfile added">
+      <created>1680194367254</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680194367254</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fnt8:entrypoint.sh added" />
     <MESSAGE value="fnt10:entrypoint.sh added" />
-    <option name="LAST_COMMIT_MESSAGE" value="fnt10:entrypoint.sh added" />
+    <MESSAGE value="fnt10:dockerfile added" />
+    <option name="LAST_COMMIT_MESSAGE" value="fnt10:dockerfile added" />
   </component>
 </project>
