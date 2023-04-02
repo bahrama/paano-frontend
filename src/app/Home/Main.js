@@ -27,8 +27,8 @@ const Main = () =>{
             </div>
             <div className="bg-slate-400 basis-2/3 h-96 w-full">
               <div className='grid grid-cols-1 gap-4 place-items-center h-96 max-w-md max-h-full'>
-           {/* <img className='object-cover h-full w-full' src='https://www.tehcfu.com/Images/f4e4f84a-eab3-4334-b417-66ea32401607.jpg;jsessionid=edWbNJ1ZrZulGmxQ1oKuZ9qdRYGKBjydn_Ds6Qk5.alikhah'/>*/}
-            <CustomSlider/>
+           <img className='object-cover h-full w-full' src='https://www.tehcfu.com/Images/f4e4f84a-eab3-4334-b417-66ea32401607.jpg;jsessionid=edWbNJ1ZrZulGmxQ1oKuZ9qdRYGKBjydn_Ds6Qk5.alikhah'/>
+            {/*<CustomSlider/>*/}
               </div>
             </div>
           </div>
