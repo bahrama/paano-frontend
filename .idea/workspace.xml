@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt11:menu changed">
+    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt12:humberger menu added">
+      <change afterPath="$PROJECT_DIR$/src/components/slider/CustomSlider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Home/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Home/Main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fnt8" />
+        <entry key="$PROJECT_DIR$" value="fnt10" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,7 +76,7 @@
       <workItem from="1680196900763" duration="2632000" />
       <workItem from="1680257423651" duration="11117000" />
       <workItem from="1680331651664" duration="12109000" />
-      <workItem from="1680425290133" duration="5602000" />
+      <workItem from="1680425290133" duration="12528000" />
     </task>
     <task id="LOCAL-00001" summary="fnt8:entrypoint.sh added">
       <created>1680082489236</created>
@@ -106,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680425717523</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fnt12:humberger menu added">
+      <created>1680433200194</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680433200194</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +154,7 @@
     <MESSAGE value="fnt10:entrypoint.sh added" />
     <MESSAGE value="fnt10:dockerfile added" />
     <MESSAGE value="fnt11:menu changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fnt11:menu changed" />
+    <MESSAGE value="fnt12:humberger menu added" />
+    <option name="LAST_COMMIT_MESSAGE" value="fnt12:humberger menu added" />
   </component>
 </project>
