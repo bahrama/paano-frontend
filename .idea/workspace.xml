@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt10:dockerfile added">
-      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/Vazir.woff2" afterDir="false" />
+    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt11:menu changed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +41,7 @@
     <option name="myId2Visible">
       <map>
         <entry key="com.haulmont.rcb.reactComponents" value="false" />
-        <entry key="com.haulmont.rcb.reactInspector" value="true" />
+        <entry key="com.haulmont.rcb.reactInspector" value="false" />
       </map>
     </option>
   </component>
@@ -74,7 +67,8 @@
       <workItem from="1680157534987" duration="13221000" />
       <workItem from="1680196900763" duration="2632000" />
       <workItem from="1680257423651" duration="11117000" />
-      <workItem from="1680331651664" duration="6867000" />
+      <workItem from="1680331651664" duration="12109000" />
+      <workItem from="1680425290133" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="fnt8:entrypoint.sh added">
       <created>1680082489236</created>
@@ -97,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680194367254</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fnt11:menu changed">
+      <created>1680341972869</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680341972869</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +131,7 @@
     <MESSAGE value="fnt8:entrypoint.sh added" />
     <MESSAGE value="fnt10:entrypoint.sh added" />
     <MESSAGE value="fnt10:dockerfile added" />
-    <option name="LAST_COMMIT_MESSAGE" value="fnt10:dockerfile added" />
+    <MESSAGE value="fnt11:menu changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fnt11:menu changed" />
   </component>
 </project>
