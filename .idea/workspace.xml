@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt13:slider added" />
+    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt13:slider added 2">
+      <change beforePath="$PROJECT_DIR$/src/app/Home/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Home/Main.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,7 +74,7 @@
       <workItem from="1680196900763" duration="2632000" />
       <workItem from="1680257423651" duration="11117000" />
       <workItem from="1680331651664" duration="12109000" />
-      <workItem from="1680425290133" duration="12931000" />
+      <workItem from="1680425290133" duration="13433000" />
     </task>
     <task id="LOCAL-00001" summary="fnt8:entrypoint.sh added">
       <created>1680082489236</created>
@@ -123,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680440811564</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="fnt13:slider added 2">
+      <created>1680441205644</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680441205644</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +168,7 @@
     <MESSAGE value="fnt11:menu changed" />
     <MESSAGE value="fnt12:humberger menu added" />
     <MESSAGE value="fnt13:slider added" />
-    <option name="LAST_COMMIT_MESSAGE" value="fnt13:slider added" />
+    <MESSAGE value="fnt13:slider added 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fnt13:slider added 2" />
   </component>
 </project>
