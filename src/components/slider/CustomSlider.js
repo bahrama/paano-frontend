@@ -20,33 +20,33 @@ const CustomSlider = () =>{
 
     const photoService = [
         {
-            "itemImageSrc": "http://172.17.0.1:8080/image/1.jpg",
-            "thumbnailImageSrc": "http://172.17.0.1:8080/image/1.jpg",
+            "itemImageSrc": "http://212.33.199.192/image/1.jpg",
+            "thumbnailImageSrc": "http://212.33.199.192/image/1.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         },
         {
-            "itemImageSrc": "http://172.17.0.1:8080/image/2.jpg",
-            "thumbnailImageSrc": "http://172.17.0.1:8080/image/2.jpg",
+            "itemImageSrc": "http://212.33.199.192/image/2.jpg",
+            "thumbnailImageSrc": "http://212.33.199.192/image/2.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         },
         {
-            "itemImageSrc": "http://172.17.0.1:8080/image/3.jpg",
-            "thumbnailImageSrc": "http://172.17.0.1:8080/image/3.jpg",
+            "itemImageSrc": "http://212.33.199.192/image/3.jpg",
+            "thumbnailImageSrc": "http://212.33.199.192/image/3.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         },
         {
-            "itemImageSrc": "http://172.17.0.1:8080/image/4.jpg",
-            "thumbnailImageSrc": "http://172.17.0.1:8080/image/4.jpg",
+            "itemImageSrc": "http://212.33.199.192/image/4.jpg",
+            "thumbnailImageSrc": "http://212.33.199.192/image/4.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         }
         ,
         {
-            "itemImageSrc": "http://172.17.0.1:8080/image/5.jpg",
-            "thumbnailImageSrc": "http://172.17.0.1:8080/image/5.jpg",
+            "itemImageSrc": "http://212.33.199.192/image/5.jpg",
+            "thumbnailImageSrc": "http://212.33.199.192/image/5.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         }
