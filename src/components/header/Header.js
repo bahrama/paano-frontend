@@ -68,7 +68,7 @@ const Header = () =>{
 
 
                     <div>
-                      <img src="http://172.17.0.1:8080/image/6.jpg" className="h-16"/>
+                      <img src="http://212.33.199.192/image/6.jpg" className="h-16"/>
                     </div>
                 </div>
            </div>

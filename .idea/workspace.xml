@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt13:slider added 3">
-      <change afterPath="$PROJECT_DIR$/public/image/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/image/6.jpg" afterDir="false" />
+    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt14:main page amended">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Home/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Home/Main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/slider/CustomSlider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/slider/CustomSlider.js" afterDir="false" />
     </list>
@@ -30,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fnt12" />
+        <entry key="$PROJECT_DIR$" value="fnt13" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,7 +79,7 @@
       <workItem from="1680331651664" duration="12109000" />
       <workItem from="1680425290133" duration="13705000" />
       <workItem from="1680459088643" duration="335000" />
-      <workItem from="1680538416042" duration="9902000" />
+      <workItem from="1680538416042" duration="10571000" />
     </task>
     <task id="LOCAL-00001" summary="fnt8:entrypoint.sh added">
       <created>1680082489236</created>
@@ -153,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680441726145</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fnt14:main page amended">
+      <created>1680550667296</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680550667296</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +189,7 @@
     <MESSAGE value="fnt13:slider added" />
     <MESSAGE value="fnt13:slider added 2" />
     <MESSAGE value="fnt13:slider added 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="fnt13:slider added 3" />
+    <MESSAGE value="fnt14:main page amended" />
+    <option name="LAST_COMMIT_MESSAGE" value="fnt14:main page amended" />
   </component>
 </project>
