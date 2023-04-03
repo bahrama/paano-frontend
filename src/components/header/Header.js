@@ -17,12 +17,6 @@ const Header = () =>{
            <div className='container mx-auto py-2 px-10'>
                 <div className='flex justify-between items-center'>
                     <div className='hidden md:flex items-center'>
-                        <div className="mr-7">
-                            <ul className="flex gap-7 font-vazir">
-                                <li className="nav-item-active"><Link href={"/"}>ورود</Link></li>
-                                <li className="nav-item"><Link href={"#"}>عضویت</Link></li>
-                            </ul>
-                        </div>
                       <div className="mr-7">
                         <ul className="flex gap-7 font-vazir">
                           <li className="nav-item-active"><Link href={"/"}>صفحه اصلی</Link></li>
@@ -54,7 +48,7 @@ const Header = () =>{
                             </Link>
                         </div>
                         {humbergerMenuExpand ?
-                            <div className="absolute bg-white py-3 px-3 rounded-lg top-13 border border-indigo-600">
+                            <div className="absolute bg-white py-3 px-3 rounded-lg top-13 border border-indigo-600 z-50	">
                                 <div className='flex items-center'>
                                     <div>
                                         <ul className="flex flex-col gap-7 font-vazir">
@@ -74,7 +68,7 @@ const Header = () =>{
 
 
                     <div>
-                      <h2>paaano.ir</h2>
+                      <img src="http://172.17.0.1:8080/image/6.jpg" className="h-16"/>
                     </div>
                 </div>
            </div>
