@@ -69,3 +69,5 @@ const CustomSlider = () =>{
 }
 
 export default CustomSlider;
+
+/*changes from ali*/
