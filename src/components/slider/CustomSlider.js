@@ -20,33 +20,33 @@ const CustomSlider = () =>{
 
     const photoService = [
         {
-            "itemImageSrc": "http://212.33.199.192/image/1.jpg",
-            "thumbnailImageSrc": "http://212.33.199.192/image/1.jpg",
+            "itemImageSrc": "https://www.tehranch.com/image/1.jpg",
+            "thumbnailImageSrc": "https://www.tehranch.com/image/1.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         },
         {
-            "itemImageSrc": "http://212.33.199.192/image/2.jpg",
-            "thumbnailImageSrc": "http://212.33.199.192/image/2.jpg",
+            "itemImageSrc": "https://www.tehranch.com/image/2.jpg",
+            "thumbnailImageSrc": "https://www.tehranch.com/image/2.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         },
         {
-            "itemImageSrc": "http://212.33.199.192/image/3.jpg",
-            "thumbnailImageSrc": "http://212.33.199.192/image/3.jpg",
+            "itemImageSrc": "https://www.tehranch.com/image/3.jpg",
+            "thumbnailImageSrc": "https://www.tehranch.com/image/3.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         },
         {
-            "itemImageSrc": "http://212.33.199.192/image/4.jpg",
-            "thumbnailImageSrc": "http://212.33.199.192/image/4.jpg",
+            "itemImageSrc": "https://www.tehranch.com/image/4.jpg",
+            "thumbnailImageSrc": "https://www.tehranch.com/image/4.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         }
         ,
         {
-            "itemImageSrc": "http://212.33.199.192/image/5.jpg",
-            "thumbnailImageSrc": "http://212.33.199.192/image/5.jpg",
+            "itemImageSrc": "https://www.tehranch.com/image/5.jpg",
+            "thumbnailImageSrc": "https://www.tehranch.com/image/5.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         }
