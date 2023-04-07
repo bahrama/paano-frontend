@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e03956e-b594-42a8-89ed-1cc0cbc0a44f" name="Changes" comment="fnt15:cert added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fnt14" />
+        <entry key="$PROJECT_DIR$" value="fnt15" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,18 +29,8 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "last_opened_file_path": "C:/paano-front/public/.well-known/pki-validation",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external"
   }
-}]]></component>
+}</component>
   <component name="ReactBuddySettings">
     <option name="extensionsIgnore" value="true" />
   </component>
@@ -84,6 +73,7 @@
       <workItem from="1680579197394" duration="28000" />
       <workItem from="1680622870805" duration="126000" />
       <workItem from="1680710952545" duration="856000" />
+      <workItem from="1680809106737" duration="669000" />
     </task>
     <task id="LOCAL-00001" summary="fnt8:entrypoint.sh added">
       <created>1680082489236</created>
@@ -169,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680711206550</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fnt21:test">
+      <created>1680809174749</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680809174749</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +207,7 @@
     <MESSAGE value="fnt14:main page amended" />
     <MESSAGE value="fnt14:main page amended 2" />
     <MESSAGE value="fnt15:cert added" />
-    <option name="LAST_COMMIT_MESSAGE" value="fnt15:cert added" />
+    <MESSAGE value="fnt21:test" />
+    <option name="LAST_COMMIT_MESSAGE" value="fnt21:test" />
   </component>
 </project>
