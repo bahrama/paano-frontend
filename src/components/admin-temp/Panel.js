@@ -19,8 +19,7 @@ const Panel = ({children}) => {
           </div>
         </div>
         </section>
-            
-            
+            {/* panel changed  */}
         </>
     )
 }
