@@ -65,6 +65,9 @@ const CustomSlider = () =>{
             <Galleria value={photoService} numVisible={5} circular className="w-auto" showItemNavigators
                       showThumbnails={false} item={itemTemplate} thumbnail={thumbnailTemplate} autoPlay transitionInterval={2000}/>
         </div>
+        /*
+        * test amir 2
+        * */
     )
 }
 

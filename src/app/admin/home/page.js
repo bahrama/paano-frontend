@@ -11,6 +11,7 @@ const AdminHome = () =>{
                 <a href="#">dasdasdasd</a>
            </Panel>
            برای داش مسعود
+           دمت گرم
         </div>
     )
 }
