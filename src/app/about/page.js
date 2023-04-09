@@ -1,8 +1,8 @@
-
+import Circle from './../../components/Circle/circle';
 const About=()=>{
     return(
         <div>
-        <circle/>
+        <Circle />
         </div>
     )
 }

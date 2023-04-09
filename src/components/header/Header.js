@@ -19,8 +19,8 @@ const Header = () =>{
                     <div className='hidden md:flex items-center'>
                       <div className="mr-7">
                         <ul className="flex gap-7 font-vazir">
-                          <li className="nav-item-active"><Link href={"/"}>صفحه اصلی</Link></li>
-                          <li class="nav-item"><Link onClick={handleProductMenuExpand} href={"#"}>محصولات</Link>
+                          <li className="nav-item-active"><Link href={"/"}> خانه</Link></li>
+                          <li className="nav-item"><Link onClick={handleProductMenuExpand} href={"#"}>محصولات</Link>
                               {productMenuExpand ?
                                   <div className="bg-white absolute top-14 border rounded-lg py-2 px-2 transition duration-300 ease-in-out" key="test">
                                       <ul className="space-y-3">
@@ -35,7 +35,7 @@ const Header = () =>{
 
                           </li>
                           <li className="nav-item"><Link href={"#"}>تماس با ما</Link></li>
-                          <li className="nav-item"><Link href={"#"}>درباره ما</Link></li>
+                          <li className="nav-item"><Link href={"/about"}>درباره ما</Link></li>
                         </ul>
                       </div>
                     </div>

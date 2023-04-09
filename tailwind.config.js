@@ -27,6 +27,8 @@ module.exports = {
       colors:{
         'test' : '#7f7f7f',
         'luster':{
+          'test3':'#ccb121',
+          'test4':'#021131',
           '1':'#bb965d',
           'DEFAULT':'#ffffff',
           '2':'#17234d'
