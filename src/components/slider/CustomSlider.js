@@ -53,15 +53,15 @@ const CustomSlider = () =>{
     ];
 
     const itemTemplate = (item) => {
-        return <img className="h-96 rounded-lg" src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
+        return <img className="h-[500px] rounded-lg" src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
     }
 
     const thumbnailTemplate = (item) => {
-        return <img className="h-96 rounded-lg" src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }} />;
+        return <img className="h-[500px] rounded-lg" src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }} />;
     }
 
     return (
-        <div className="w-full">
+        <div className="w-full ">
             <Galleria value={photoService} numVisible={5} circular className="w-auto" showItemNavigators
                       showThumbnails={false} item={itemTemplate} thumbnail={thumbnailTemplate} autoPlay transitionInterval={2000}/>
         </div>

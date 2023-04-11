@@ -19,6 +19,12 @@
     .cust-pr{
         padding-right: 79px;
     }
+    .small-header-2{
+        padding: 2px;
+    }
+    .mx-h-700{
+        max-height: 700px;
+    }
 }
 
 @layer base{
@@ -36,13 +42,41 @@
         @apply bg-blue-800 mx-auto py-0.5
     }
     .nav-item{
-        @apply transition duration-300
-        ease-in-out text-cyan-50 bg-luster-1 p-1.5
-        rounded-lg hover:bg-blue-200 hover:text-blue-900
+        /*@apply transition duration-300*/
+        /*ease-in-out text-cyan-50 bg-amber-50 text-black p-1.5*/
+        /*rounded-lg hover:bg-blue-200 hover:text-blue-900*/
+        /*hover:border-b-4 hover:shadow-md*/
+        @apply transition ease-in-out
+        delay-150 bg-white hover:-translate-y-1 hover:scale-110
+        duration-300
+        rounded-lg p-2
     }
     .nav-item-active{
         @apply transition duration-300 ease-in-out
-        text-cyan-50 bg-luster-2 p-1.5 rounded-lg
-        hover:bg-blue-200  hover:text-blue-900
+        text-black p-1.5 rounded-lg
+        hover:bg-blue-200
+        hover:border-b-4 hover:shadow-md
+    }
+    .small-header{
+        @apply transition duration-300
+        width: 64px height: 64px
+    }
+    .product-list{
+        @apply border text-center hover:border-luster-1 rounded-lg smallphone:w-20 smallphone:h-14 sm:w-60 sm:h-10
+    }
+    .header-btn{
+        @apply text-center bg-luster-1 text-white align-middle border-2 shadow-xl
+    }
+    .about-img{
+        @apply
+        float-left border-8 rounded-2xl border-luster-2 border-double rounded-lg  w-[250px] h-[200px] object-contain px-2 mix-blend-multiply
+    }
+    .container-about{
+        @apply
+        container mx-auto h-[900px] font-vazir text-base text-justify
+    }
+    .small-menu-item{
+        @apply
+        lg:grid lg:grid-cols-3 gap-2 md:grid md:grid-cols-2
     }
 }
