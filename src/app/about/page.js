@@ -1,9 +1,9 @@
-import Circle from './../../components/Circle/circle';
+import React from 'react';
+import AboutComp from './../../components/aboutComponent/aboutComponent';
+
 const About=()=>{
     return(
-        <div>
-        <Circle />
-        </div>
+            <AboutComp />
     )
 }
 export default About;

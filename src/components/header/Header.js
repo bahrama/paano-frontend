@@ -13,13 +13,13 @@ const Header = () =>{
         setHumbergerMenuExpand(!humbergerMenuExpand);
     }
     return (
-         <header className="shadow-lg mb-10">
-           <div className='container mx-auto py-2 px-10'>
+         <header className=" bg-luster-1 shadow-lg mb-10">
+           <div className='container  mx-auto py-2 px-10'>
                 <div className='flex justify-between items-center'>
                     <div className='hidden md:flex items-center'>
                       <div className="mr-7">
                         <ul className="flex gap-7 font-vazir">
-                          <li className="nav-item-active"><Link href={"/"}> خانه</Link></li>
+                          <li className="nav-item"><Link href={"/"}> خانه</Link></li>
                           <li className="nav-item"><Link onClick={handleProductMenuExpand} href={"#"}>محصولات</Link>
                               {productMenuExpand ?
                                   <div className="bg-white absolute top-14 border rounded-lg py-2 px-2 transition duration-300 ease-in-out" key="test">
@@ -41,21 +41,21 @@ const Header = () =>{
                     </div>
 
 
-                    <div className="md:hidden">
+                    <div className="md:hidden ">
                         <div>
                             <Link href="#" onClick={handleHumbergerMenuExpand}>
                                 <i className="pi pi-bars"/>
                             </Link>
                         </div>
                         {humbergerMenuExpand ?
-                            <div className="absolute bg-white py-3 px-3 rounded-lg top-13 border border-indigo-600 z-50	">
+                            <div className="absolute bg-white py-3  px-3 rounded-lg top-13 border border-indigo-600 z-50	">
                                 <div className='flex items-center'>
                                     <div>
                                         <ul className="flex flex-col gap-7 font-vazir">
                                             <li><Link href={"/"}>صفحه اصلی</Link></li>
                                             <li><Link href={"#"}>محصولات</Link></li>
                                             <li><Link href={"#"}>تماس با ما</Link></li>
-                                            <li><Link href={"#"}>درباره ما</Link></li>
+                                            <li><Link href={"/about"}>درباره ما</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@ const Header = () =>{
 
 
                     <div>
-                      <img src="https://www.tehranch.com/image/6.jpg" className="h-16"/>
+                      <img src="/image/logo-black.png" className="h-24 bg-none"/>
                     </div>
                 </div>
            </div>

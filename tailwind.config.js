@@ -22,7 +22,8 @@ module.exports = {
     },
     extend: {
       screens:{
-         'tablet':'800px'
+        'smallphone':'300px',
+
       },
       colors:{
         'test' : '#7f7f7f',
@@ -35,7 +36,13 @@ module.exports = {
         }
       },
       spacing:{
-        'd-50':'10.5rem'
+        'd-50':'10.5rem',
+      },
+      width:{
+        '64': '64px',
+      },
+      height:{
+        '64': '64px',
       },
       fontFamily: {
         'vazir' : 'Vazir'

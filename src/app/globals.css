@@ -19,6 +19,9 @@
     .cust-pr{
         padding-right: 79px;
     }
+    .small-header-2{
+        padding: 2px;
+    }
 }
 
 @layer base{
@@ -46,5 +49,9 @@
         text-black p-1.5 rounded-lg
         hover:bg-blue-200
         hover:border-b-4 hover:shadow-md
+    }
+    .small-header{
+        @apply transition duration-300
+        width: 64px height: 64px
     }
 }
