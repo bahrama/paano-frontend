@@ -1,5 +1,4 @@
 import Link from "next/link";
-import './footer.css';
 const Panel = ({children}) => {    
     return(
         <>
