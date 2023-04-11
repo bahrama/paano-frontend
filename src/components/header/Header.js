@@ -68,7 +68,7 @@ const Header = () =>{
 
 
                     <div>
-                      <img src="/image/logo-black.png" className="h-24 bg-none"/>
+                      <img src="/image/8.jpg" className="h-24 mix-blend-multiply"/>
                     </div>
                 </div>
            </div>
