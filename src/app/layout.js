@@ -1,6 +1,8 @@
 import Footer from '@/components/footer/Footer'
 import Header from '@/components/header/Header'
 import './globals.css'
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
 
 export const metadata = {
   title: 'اتحادیه لوستر سازان تهران',

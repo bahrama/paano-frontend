@@ -12,7 +12,6 @@ import CustomSlider from "@/components/slider/CustomSlider";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import React from 'react';
 import Link from 'next/link';
-import SmallMenu from "@/components/smallMenu/SmallMenu";
 const Main = () =>{
     return(
       <>
@@ -43,7 +42,7 @@ const Main = () =>{
           <section>
               <div className='container mx-auto  py-2 px-10'>
                   <div className="flex flex-col-reverse sm:flex-row gap-5 items-center">
-                      <div className="basis-1/3 h-[] w-full rounded-lg">
+                      <div className="basis-1/3 h-[] w-full rounded-lg mtopsub100">
                           <div
                               className='grid grid-cols-1 gap-4 place-items-center h-96 rounded-lg  items-stretch '>
                               <a className="border w-full text-center hover:border-luster-1 rounded-lg " href='#'> <span
@@ -69,7 +68,19 @@ const Main = () =>{
               </div>
           </section>
           <br/>
-          <SmallMenu />
+          <section className=" container mx-auto px-10 font-bold">
+              <div className="small-menu-item">
+                  <div className="header-btn ">
+                      <p className="leading-10 pt-1 ">صدور پروانه کسب</p>
+                  </div>
+                  <div className="header-btn ">
+                      <p className="leading-10 pt-1">تمدید پروانه کسب</p>
+                  </div>
+                  <div className="header-btn">
+                      <p className="leading-10 pt-1 ">مدارک مورد نیاز مباشرت</p>
+                  </div>
+              </div>
+          </section>
           <br/>
 <section>
       <div className='container font-vazir'>
