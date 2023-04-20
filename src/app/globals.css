@@ -79,4 +79,10 @@
         @apply
         lg:grid lg:grid-cols-3 gap-2 md:grid md:grid-cols-2
     }
+    .container{
+        max-width: 100%;
+    }
+    .mtopsub100{
+        margin-top: 100px;
+    }
 }
