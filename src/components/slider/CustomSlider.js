@@ -53,11 +53,11 @@ const CustomSlider = () =>{
     ];
 
     const itemTemplate = (item) => {
-        return <img className="h-[500px] rounded-lg" src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
+        return <img className="w-full h-[300px] sm:h-[500px] md:h-[500px] rounded-lg" src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', display: 'block' }} />;
     }
 
     const thumbnailTemplate = (item) => {
-        return <img className="h-[500px] rounded-lg" src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }} />;
+        return <img className="w-full h-[300px] sm:h-[500px] md:h-[500px] rounded-lg" src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }} />;
     }
 
     return (
