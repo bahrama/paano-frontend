@@ -87,19 +87,19 @@ const Main = () =>{
           <div class="md:w-[500px] md:mr-[100px] lg:w-auto my-auto lg:grid lg:grid-cols-3 gap-4 sm:grid sm:grid-cols-1 items-center">
               <Link href={'/'}>
                   <div className=" basis-1/3 md:h-96 md:py-3 w-full">
-                      <img className="md:mr-4 lg:mr-0 h-full rounded-lg" src="/svg/ir.svg"/>
+                      <img className="md:mr-4 lg:mr-0 h-full rounded-lg w-full" src="/svg/ir.svg"/>
                       <h5 className='text-center border-2'>نزدیک ترین ها</h5>
                   </div>
               </Link>
               <Link href={'/'}>
                     <div class="basis-1/3 md:h-96 md:py-3  w-full">
-                            <img className="md:mr-16 lg:mr-0 h-full rounded-lg mix-blend-multiply" src="/image/partmentship.jpg"/>
+                            <img className="md:mr-16 lg:mr-0 h-full rounded-lg mix-blend-multiply w-full" src="/image/partmentship.jpg"/>
                             <h5 className='text-center border-2'>اعضای صنفی اتحادیه</h5>
                     </div>
               </Link>
               <Link href={'/'}>
                     <div class=" basis-1/3 md:h-96 md:py-3 w-full">
-                        <img className="md:mr-6 lg:mr-0 h-full rounded-lg" src="/image/9.jpg"/>
+                        <img className="md:mr-6 lg:mr-0 h-full rounded-lg w-full" src="/image/9.jpg"/>
                         <h5 className='text-center border-2'>نیازمندی ها</h5>
                     </div>
               </Link>
