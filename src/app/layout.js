@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
           <link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
           <title>Soft UI Dashboard Tailwind</title>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
-          <script src="https://kit.fontawesome.com/42d5adcbca.js" crossOrigin="anonymous"></script>
+          <script src="https://kit.fontawesome.com/42d5adcbca.js" crossOrigin="anonymous" async></script>
           <link href="/assets/css/nucleo-icons.css" rel="stylesheet"/>
           <link href="/assets/css/nucleo-svg.css" rel="stylesheet"/>
           <link href="/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.4" rel="stylesheet"/>
