@@ -15,7 +15,7 @@ import Link from 'next/link';
 const Main = () =>{
     return(
       <>
-      <section className=" container mx-auto px-10 font-bold">
+      <section className=" container mx-auto px-10 font-bold mt-20">
           <div className="lg:grid lg:grid-cols-5 gap-2 md:grid md:grid-cols-2">
               <div className="header-btn ">
                   <p className="leading-10 pt-3">شکابات</p>
