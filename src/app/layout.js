@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
           className="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
         <Header/>
         <main className="ease-soft-in-out relative h-full max-h-screen rounded-xl transition-all duration-200">
-            <div className="w-full px-6 py-6 mx-auto">
+            <div className="w-full">
         {children}
        <Footer/>
             </div>
