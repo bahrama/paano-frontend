@@ -15,16 +15,11 @@ import Link from 'next/link';
 const Main = () =>{
     return(
       <>
-      <section className="container mx-auto px-10 mt-[85px]">
-          <div className="md:relative  mx-auto">
-              <img className='header-logo-2' src='/image/134.jpg' alt="image-header1"/>
-              <img className='header-logo-3' src='/image/ir.png' alt="image-header2"/>
-              <img className='header-logo' src='/image/6-1.png' alt="image-header-logo"/>
-              <p className='header-text-top'> اتحاديه  تولید کنندگان و فروشندگان لوستر شهرستان تهران</p>
-          </div>
-      </section>
-      <section className=" container mx-auto px-10 font-bold mt-5">
-          <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
+      <section className=" container mx-auto px-10 font-bold mt-20">
+          <div className="lg:grid lg:grid-cols-5 gap-2 md:grid md:grid-cols-2">
+              <div className="header-btn ">
+                  <p className="leading-10 pt-3">شکابات</p>
+              </div>
               <div className="header-btn ">
                   <p className="leading-10 pt-3">اخبار</p>
               </div>
@@ -36,7 +31,7 @@ const Main = () =>{
               </div>
               <Link href={"/"}>
               <div className="header-btn h-[68px]">
-                  <img className="float-left w-16 h-[67px] z-40 object-" src="/image/133.png"/>
+                  <img className="float-left w-16 z-40 object-" src="/image/133.png"/>
                    <p className="leading-10 pt-4 md:text-base lg:text-base">
                        سخن رئيس اتحاديه
                    </p>
@@ -45,13 +40,11 @@ const Main = () =>{
           </div>
       </section>
           <section>
-              <div className='container px-0 mx-0 py-2  sm:mx-auto sm:px-10'>
+              <div className='container mx-auto  py-2 px-10'>
                   <div className="flex flex-col-reverse sm:flex-row gap-5 items-center">
-                      <div className="basis-1/3  w-full rounded-lg ">
-                          <div className='bg-luster-2 py-4 mb-2 text-white text-center'>
-                              رسته های کاری
-                          </div>
-                          <div className='grid grid-cols-1 gap-4 place-items-center h-96 rounded-lg  items-stretch '>
+                      <div className="basis-1/3 h-[] w-full rounded-lg mtopsub100">
+                          <div
+                              className='grid grid-cols-1 gap-4 place-items-center h-96 rounded-lg  items-stretch '>
                               <a className="border w-full text-center hover:border-luster-1 rounded-lg " href='#'> <span
                                   className="block mt-2">لوستر خانگی</span></a>
                               <a className="border w-full text-center hover:border-luster-1 rounded-lg" href='#'> <span
@@ -64,8 +57,6 @@ const Main = () =>{
                                   className="block mt-2">ست روشنایی و لوستر</span></a>
                               <a className="border w-full text-center hover:border-luster-1 rounded-lg" href='#'> <span
                                   className="block mt-2">لوستر امارت</span></a>
-                              <a className="border w-full text-center hover:border-luster-1 rounded-lg" href='#'> <span
-                                  className="block mt-2">آباژور</span></a>
                           </div>
                       </div>
                       <div className="basis-2/3 h-[500px] w-full ">
@@ -93,23 +84,23 @@ const Main = () =>{
           <br/>
 <section>
       <div className='container font-vazir'>
-          <div class="md:w-[500px] md:mr-[100px] lg:w-auto my-auto lg:grid lg:grid-cols-3 gap-6 sm:grid sm:grid-cols-1 items-center">
+          <div class="md:w-[500px] md:mr-[100px] lg:w-auto my-auto lg:grid lg:grid-cols-3 gap-4 sm:grid sm:grid-cols-1 items-center">
               <Link href={'/'}>
                   <div className=" basis-1/3 md:h-96 md:py-3 w-full">
                       <img className="md:mr-4 lg:mr-0 h-full rounded-lg w-full" src="/svg/ir.svg"/>
-                      <h5 className='text-center border-2 text-luster-2'>نزدیک ترین ها</h5>
+                      <h5 className='text-center border-2'>نزدیک ترین ها</h5>
                   </div>
               </Link>
               <Link href={'/'}>
                     <div class="basis-1/3 md:h-96 md:py-3  w-full">
                             <img className="md:mr-16 lg:mr-0 h-full rounded-lg mix-blend-multiply w-full" src="/image/partmentship.jpg"/>
-                            <h5 className='text-center border-2 text-luster-2'>اعضای صنفی اتحادیه</h5>
+                            <h5 className='text-center border-2'>اعضای صنفی اتحادیه</h5>
                     </div>
               </Link>
               <Link href={'/'}>
                     <div class=" basis-1/3 md:h-96 md:py-3 w-full">
                         <img className="md:mr-6 lg:mr-0 h-full rounded-lg w-full" src="/image/9.jpg"/>
-                        <h5 className='text-center border-2 text-luster-2'>نیازمندی ها</h5>
+                        <h5 className='text-center border-2'>نیازمندی ها</h5>
                     </div>
               </Link>
           </div>
