@@ -8,7 +8,7 @@ const Header = () =>{
     const [humbergerMenuExpand2,setHumbergerMenuExpand2] = useState('w-5.5 rounded-xs mt-1.75 relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300');
     const [humbergerMenuExpand3,setHumbergerMenuExpand3] = useState('w-5.5 rounded-xs relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300 mt-1.75');
     const [humbergerMenuExpand4,setHumbergerMenuExpand4] = useState('items-center flex-grow overflow-hidden transition-all duration-500 ease-soft basis-full lg:flex lg:basis-auto lg-max:max-h-0');
-    const [humbergerMenuExpand5,setHumbergerMenuExpand5] = useState('block px-4 py-2 mr-2 font-normal transition-all duration-250 ease-soft-in-out text-sm  lg:px-2 lg-max:opacity-0');
+    const [humbergerMenuExpand5,setHumbergerMenuExpand5] = useState('block px-4 py-2 mr-2 font-normal transition-all duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2 lg-max:opacity-0');
     const [sideBar,setSideBar] = useState('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0' +
         ' top-0 z-50 origin-top list-none rounded-lg border-0 ' +
         'border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] ' +
@@ -22,13 +22,13 @@ const Header = () =>{
             setHumbergerMenuExpand2('w-5.5 rounded-xs mt-1.75 relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300 opacity-0');
             setHumbergerMenuExpand3('w-5.5 rounded-xs relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300 -rotate-45 origin-10-90 mt-0.75');
             setHumbergerMenuExpand4('items-center flex-grow overflow-hidden transition-all duration-500 ease-soft basis-full lg:flex lg:basis-auto lg-max:max-h-54');
-            setHumbergerMenuExpand5('block px-4 py-2 mr-2 font-normal transition-all duration-250 ease-soft-in-out text-sm  lg:px-2');
+            setHumbergerMenuExpand5('block px-4 py-2 mr-2 font-normal transition-all duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2');
         }else {
             setHumbergerMenuExpand1('w-5.5 rounded-xs relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300');
             setHumbergerMenuExpand2('w-5.5 rounded-xs mt-1.75 relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300');
             setHumbergerMenuExpand3('w-5.5 rounded-xs relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300 mt-1.75');
             setHumbergerMenuExpand4('items-center flex-grow overflow-hidden transition-all duration-500 ease-soft basis-full lg:flex lg:basis-auto lg-max:max-h-0');
-            setHumbergerMenuExpand5('block px-4 py-2 mr-2 font-normal transition-all duration-250 ease-soft-in-out text-sm  lg:px-2 lg-max:opacity-0');
+            setHumbergerMenuExpand5('block px-4 py-2 mr-2 font-normal transition-all duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2 lg-max:opacity-0');
         }
     }
     const handleSideBarExpand = () =>{
@@ -46,15 +46,15 @@ const Header = () =>{
             setSideBarMenuState(true);
     });
     return (
-            <div className="container sticky top-0 z-sticky text-white w-full ">
-                <div className="flex flex-wrap ">
+            <div className="container sticky top-0 z-sticky">
+                <div className="flex flex-wrap -mx-3">
                     <div className="w-full max-w-full px-3 flex-0">
                         <nav
-                            className="navbar">
+                            className="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center px-4 py-2 mx-6 my-4 shadow-soft-2xl rounded-blur bg-white/80 backdrop-blur-2xl backdrop-saturate-200 lg:flex-nowrap lg:justify-start">
                             <div
                                 className="flex items-center justify-between w-full p-0 pl-6 mx-auto flex-wrap-inherit">
-                                <a className="hidden sm:header-text"
-                                   href="#"> اتحادیه تولید کنندگان و فروشمدگان لوستر شهرستان تهران </a>
+                                <a className="py-2.375 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-slate-700 lg:ml-0"
+                                   href="#"> اتحادیه صنف لوسترسازان تهران </a>
                                 <button
                                     className="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg ease-soft-in-out lg:hidden"
                                     type="button" aria-controls="navigation" aria-expanded="false"
@@ -74,19 +74,19 @@ const Header = () =>{
                                         <li>
                                             <a className={humbergerMenuExpand5}
                                                aria-current="page" href="#">
-                                                <i className="mr-3 fa fa-home opacity-60"></i>
+                                                <i className="mr-3 fa fa-chart-pie opacity-60"></i>
                                                 <span className="mr-3">خانه</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a className={humbergerMenuExpand5}>
-                                                <i className="mr-3 fa fa-list opacity-60"></i>
+                                                <i className="mr-3 fa fa-user opacity-60"></i>
                                                 <span onClick={handleSideBarExpand} className="mr-3 cursor-pointer">دسته بندی ها</span>
                                             </a>
                                             <ul dropdown-menu ref={overlayRef}
                                                 className={sideBar}>
                                                 <li className="relative mb-2">
-                                                    <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 text-white lg:transition-colors"
+                                                    <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors"
                                                        href="javascript:;">
                                                         <div className="flex py-1">
                                                             <div className="my-auto">
@@ -103,7 +103,7 @@ const Header = () =>{
                                                 </li>
 
                                                 <li className="relative mb-2">
-                                                    <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 "
+                                                    <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
                                                        href="javascript:;">
                                                         <div className="flex py-1">
                                                             <div className="my-auto">
@@ -120,7 +120,7 @@ const Header = () =>{
                                                     </a>
                                                 </li>
                                                 <li className="relative mb-2">
-                                                    <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 "
+                                                    <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
                                                        href="javascript:;">
                                                         <div className="flex py-1">
                                                             <div className="my-auto">
@@ -163,7 +163,7 @@ const Header = () =>{
                                     </ul>
                                     <ul className="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
                                         <li>
-                                            <img src="/image/6-1.png" className="h-16 "/>
+                                            <img src="/image/8.jpg" className="h-16 mix-blend-multiply"/>
                                         </li>
                                     </ul>
                                 </div>
