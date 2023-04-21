@@ -1,5 +1,6 @@
 const Footer = () =>{
     return(
+        <>
         <footer className="bg-luster-1 font-vazir text-lg">
             <div className="px-2 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-1 pt-8 pb-2">
                 <div className="w-auto px-2">
@@ -58,6 +59,7 @@ const Footer = () =>{
                     تعداد بازدید
             </div>   
         </footer>
+        </>
     )
 }
 

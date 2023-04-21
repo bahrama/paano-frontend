@@ -85,4 +85,13 @@
     .mtopsub100{
         margin-top: 100px;
     }
+    .mtop50{
+        margin-top: 50px!important;
+    }
+    .cusw25{
+        width: 25%!important;
+    }
+    .cusw75{
+        width: 75%!important;
+    }
 }
