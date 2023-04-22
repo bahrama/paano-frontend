@@ -65,7 +65,7 @@
         @apply border text-center hover:border-luster-1 rounded-lg smallphone:w-20 smallphone:h-14 sm:w-60 sm:h-10
     }
     .header-btn{
-        @apply text-center bg-luster-1 text-white align-middle border-2 shadow-xl
+        @apply text-center bg-luster-2  border-b-[8px] border-b-luster-1 text-white align-middle border-2 shadow-xl
     }
     .about-img{
         @apply

@@ -16,10 +16,7 @@ const Main = () =>{
     return(
       <>
       <section className=" container mx-auto px-10 font-bold mt-20">
-          <div className="lg:grid lg:grid-cols-5 gap-2 md:grid md:grid-cols-2">
-              <div className="header-btn ">
-                  <p className="leading-10 pt-3">شکابات</p>
-              </div>
+          <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
               <div className="header-btn ">
                   <p className="leading-10 pt-3">اخبار</p>
               </div>
@@ -30,7 +27,7 @@ const Main = () =>{
                   <p className="leading-10 pt-3">همکاران اتحادیه</p>
               </div>
               <Link href={"/"}>
-              <div className="header-btn h-[68px]">
+              <div className="header-btn h-[75px]">
                   <img className="float-left w-16 z-40 object-" src="/image/133.png"/>
                    <p className="leading-10 pt-4 md:text-base lg:text-base">
                        سخن رئيس اتحاديه
@@ -42,7 +39,10 @@ const Main = () =>{
           <section>
               <div className='container mx-auto  py-2 px-10'>
                   <div className="flex flex-col-reverse sm:flex-row gap-5 items-center">
-                      <div className="basis-1/3 h-[] w-full rounded-lg mtopsub100">
+                      <div className="basis-1/3  w-full rounded-lg ">
+                            <div className="text-white  bg-luster-2 text-center py-5 mb-2">
+                                رسته های شغلی
+                            </div>
                           <div
                               className='grid grid-cols-1 gap-4 place-items-center h-96 rounded-lg  items-stretch '>
                               <a className="border w-full text-center hover:border-luster-1 rounded-lg " href='#'> <span

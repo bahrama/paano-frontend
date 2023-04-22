@@ -11,7 +11,7 @@ const Header = () =>{
     const [humbergerMenuExpand5,setHumbergerMenuExpand5] = useState('block px-4 py-2 mr-2 font-normal transition-all duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2 lg-max:opacity-0');
     const [sideBar,setSideBar] = useState('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0' +
         ' top-0 z-50 origin-top list-none rounded-lg border-0 ' +
-        'border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] ' +
+        'border-solid border-transparent bg-black bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] ' +
         'sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
     const overlayRef = useRef(null);
     const handleHumbergerMenuExpand = () =>{
@@ -36,25 +36,25 @@ const Header = () =>{
         setSideBarMenuState(!sideBarMenuState);
         if(sideBarMenuState)
         {
-            setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer before:-top-5 transform-dropdown-show');
+            setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-luster-2 bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer before:-top-5 transform-dropdown-show');
         }else {
-            setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
+            setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-luster-2 bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
         }
     }
     useClickOutside(overlayRef, () => {
-            setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
+            setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-luster-2 bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
             setSideBarMenuState(true);
     });
     return (
-            <div className="container sticky top-0 z-sticky">
-                <div className="flex flex-wrap -mx-3">
+            <div className="container sticky top-0 z-sticky  text-white">
+                <div className="flex flex-wrap">
                     <div className="w-full max-w-full px-3 flex-0">
                         <nav
-                            className="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center px-4 py-2 mx-6 my-4 shadow-soft-2xl rounded-blur bg-white/80 backdrop-blur-2xl backdrop-saturate-200 lg:flex-nowrap lg:justify-start">
+                            className="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center px-4 py-2 mx-6 my-4 shadow-soft-2xl rounded-lg border-b-[10px] border-b-luster-1 bg-luster-2  backdrop-blur-2xl backdrop-saturate-200 lg:flex-nowrap lg:justify-start">
                             <div
                                 className="flex items-center justify-between w-full p-0 pl-6 mx-auto flex-wrap-inherit">
-                                <a className="py-2.375 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-slate-700 lg:ml-0"
-                                   href="#"> اتحادیه صنف لوسترسازان تهران </a>
+                                <a className=" text-sm mr-4 ml-4 whitespace-nowrap font-bold text-white lg:ml-0"
+                                   href="#"> اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران </a>
                                 <button
                                     className="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg ease-soft-in-out lg:hidden"
                                     type="button" aria-controls="navigation" aria-expanded="false"
@@ -70,18 +70,18 @@ const Header = () =>{
                                 </button>
                                 <div
                                     className={humbergerMenuExpand4}>
-                                    <ul className="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto">
+                                    <ul className="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto ">
                                         <li>
                                             <a className={humbergerMenuExpand5}
                                                aria-current="page" href="#">
-                                                <i className="mr-3 fa fa-chart-pie opacity-60"></i>
-                                                <span className="mr-3">خانه</span>
+                                                <i className="mr-3 fa fa-chart-pie text-white"></i>
+                                                <span className="mr-3 text-white">خانه</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a className={humbergerMenuExpand5}>
-                                                <i className="mr-3 fa fa-user opacity-60"></i>
-                                                <span onClick={handleSideBarExpand} className="mr-3 cursor-pointer">دسته بندی ها</span>
+                                                <i className="mr-3 fa fa-user text-white"></i>
+                                                <span onClick={handleSideBarExpand} className="mr-3 cursor-pointer text-white">دسته بندی ها</span>
                                             </a>
                                             <ul dropdown-menu ref={overlayRef}
                                                 className={sideBar}>
@@ -96,7 +96,7 @@ const Header = () =>{
                                                             <div className="flex flex-col justify-center">
                                                                 <h6 className="mb-1 font-normal leading-normal text-sm">
                                                                     <span
-                                                                        className="font-semibold">لوستر آپارتمان</span></h6>
+                                                                        className="font-semibold text-white">لوستر آپارتمان</span></h6>
                                                             </div>
                                                         </div>
                                                     </a>
@@ -113,7 +113,7 @@ const Header = () =>{
                                                             <div className="flex flex-col justify-center">
                                                                 <h6 className="mb-1 font-normal leading-normal text-sm">
                                                                     <span
-                                                                        className="font-semibold">لوستر اداری</span></h6>
+                                                                        className="font-semibold text-white">لوستر اداری</span></h6>
 
                                                             </div>
                                                         </div>
@@ -130,7 +130,7 @@ const Header = () =>{
                                                             <div className="flex flex-col justify-center">
                                                                 <h6 className="mb-1 font-normal leading-normal text-sm">
                                                                     <span
-                                                                        className="font-semibold">لوستر مجتمع</span></h6>
+                                                                        className="font-semibold text-white">لوستر مجتمع</span></h6>
 
                                                             </div>
                                                         </div>
@@ -142,22 +142,22 @@ const Header = () =>{
                                         <li>
                                             <a className={humbergerMenuExpand5}
                                                aria-current="page" href="#">
-                                                <i className="mr-3 fa fa-chart-pie opacity-60"></i>
-                                                <span className="mr-3">درباره ما</span>
+                                                <i className="mr-3 fa fa-chart-pie text-white"></i>
+                                                <span className="mr-3 text-white">درباره ما</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a className={humbergerMenuExpand5}
                                                href="#">
-                                                <i className="mr-3 fas fa-user-circle opacity-60"></i>
-                                                <span className="mr-3">عضویت</span>
+                                                <i className="mr-3 fas fa-user-circle text-white"></i>
+                                                <span className="mr-3 text-white">عضویت</span>
                                             </a>
                                         </li>
                                         <li>
                                             <a className={humbergerMenuExpand5}
                                                href="#">
-                                                <i className="mr-3 fas fa-key opacity-60"></i>
-                                                <span className="mr-3">ورود</span>
+                                                <i className="mr-3 fas fa-key text-white"></i>
+                                                <span className="mr-3 text-white">ورود</span>
                                             </a>
                                         </li>
                                     </ul>
