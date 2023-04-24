@@ -9,22 +9,37 @@ import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";   
 import { Button } from 'primereact/button';
 import CustomSlider from "@/components/slider/CustomSlider";
+import AdvertismentSlider from "@/components/slider/AdvertismentSlider";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import React from 'react';
 import Link from 'next/link';
 const Main = () =>{
     return(
       <>
-      <section className=" container mx-auto px-10 font-bold mt-20">
+      <section className="container mx-auto px-10 mt-1">
+            <div className="main-header-logo">
+                <div className="relative mx-auto">
+                    <img className="main-header-logo-1" src="/image/ir.png"/>
+                    <img className="main-header-logo-2" src="/image/6.jpg"/>
+                    <div className="flex flex-row">
+                        <img className="main-header-logo-3" src="/image/134.jpg"/>
+                        <p className="main-header-logo-title">
+                            اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران
+                        </p>
+                    </div>
+                </div>
+            </div>
+      </section>
+      <section className=" container mx-auto px-10 font-bold mt-0 md:mt-20 font-vazir">
           <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
               <div className="header-btn ">
-                  <p className="leading-10 pt-3">اخبار</p>
+                  <p className="leading-10 pt-3 mb-0">اخبار</p>
               </div>
               <div className="header-btn">
-                  <p className="leading-10 pt-3 text-">اعضای هیئت مدیره</p>
+                  <p className="leading-10 pt-3 mb-0">اعضای هیئت مدیره</p>
               </div>
               <div className="header-btn ">
-                  <p className="leading-10 pt-3">همکاران اتحادیه</p>
+                  <p className="leading-10 pt-3 mb-0">همکاران اتحادیه</p>
               </div>
               <Link href={"/"}>
               <div className="header-btn h-[75px]">
@@ -36,15 +51,15 @@ const Main = () =>{
               </Link>
           </div>
       </section>
-          <section>
+      <section>
               <div className='container mx-auto  py-2 px-10'>
                   <div className="flex flex-col-reverse sm:flex-row gap-5 items-center">
-                      <div className="basis-1/3  w-full rounded-lg ">
-                            <div className="text-white  bg-luster-2 text-center py-5 mb-2">
+                      <div className="basis-1/3 mt-[100px] sm:mt-[100px] md:mt-0 w-full rounded-lg font-vazir">
+                            <div className="text-white  bg-luster-2 text-center py-5 mb-[42px]">
                                 رسته های شغلی
                             </div>
                           <div
-                              className='grid grid-cols-1 gap-4 place-items-center h-96 rounded-lg  items-stretch '>
+                              className='grid grid-cols-1 gap-4 place-items-center h-96 rounded-lg  items-stretch'>
                               <a className="border w-full text-center hover:border-luster-1 rounded-lg " href='#'> <span
                                   className="block mt-2">لوستر خانگی</span></a>
                               <a className="border w-full text-center hover:border-luster-1 rounded-lg" href='#'> <span
@@ -66,21 +81,21 @@ const Main = () =>{
                       </div>
                   </div>
               </div>
-          </section>
+      </section>
           <br/>
-          <section className=" container mx-auto px-10 font-bold">
+      <section className=" container mx-auto px-10 font-vazir font-bold">
               <div className="small-menu-item">
                   <div className="header-btn ">
-                      <p className="leading-10 pt-1 ">صدور پروانه کسب</p>
+                      <p className="leading-10 mb-0 ">صدور پروانه کسب</p>
                   </div>
                   <div className="header-btn ">
-                      <p className="leading-10 pt-1">تمدید پروانه کسب</p>
+                      <p className="leading-10 mb-0">تمدید پروانه کسب</p>
                   </div>
                   <div className="header-btn">
-                      <p className="leading-10 pt-1 ">مدارک مورد نیاز مباشرت</p>
+                      <p className="leading-10 mb-0">مدارک مورد نیاز مباشرت</p>
                   </div>
               </div>
-          </section>
+      </section>
           <br/>
 <section>
       <div className='container font-vazir'>
@@ -105,7 +120,12 @@ const Main = () =>{
               </Link>
           </div>
       </div>
-      </section>
+</section>
+          <section>
+              <div className="container mt-12">
+                  <AdvertismentSlider/>
+              </div>
+          </section>
       <br/>
       <br/>
 </>

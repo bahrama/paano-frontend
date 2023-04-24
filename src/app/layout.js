@@ -5,7 +5,7 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 
 export const metadata = {
-  title: 'اتحادیه لوستر سازان تهران',
+  title: 'اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران',
   description: 'اتحادیه لوستر سازان تهران',
 }
 

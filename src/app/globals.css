@@ -79,6 +79,29 @@
         @apply
         lg:grid lg:grid-cols-3 gap-2 md:grid md:grid-cols-2
     }
+    .main-header-logo{
+        @apply container relative mx-auto px-10 font-bold mt-[60px] font-vazir
+        md:mt-[45px] lg:mt-[60px]
+    }
+    .main-header-logo-1{
+        @apply w-full
+        hidden md:block
+    }
+    .main-header-logo-2{
+        @apply
+        hidden md:block
+        md:absolute md:top-0 md:left-[43%] md:w-[100px] md:mix-blend-multiply
+        lg:w-[130px]
+
+    }
+    .main-header-logo-3{
+        @apply
+        block w-[50%] md:hidden
+        mr-0
+    }
+    .main-header-logo-title{
+        @apply block md:hidden text-luster-2 font-vazir font-bold pt-8 pr-5
+    }
     .container{
         max-width: 100%;
     }
