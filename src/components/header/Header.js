@@ -51,10 +51,8 @@ const Header = () =>{
                     <div className="w-full max-w-full px-3 flex-0">
                         <nav
                             className="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center px-4 py-2 mx-6 my-4 shadow-soft-2xl rounded-lg border-b-[10px] border-b-luster-1 bg-luster-2  backdrop-blur-2xl backdrop-saturate-200 lg:flex-nowrap lg:justify-start">
-                            <div
-                                className="flex items-center justify-between w-full p-0 pl-6 mx-auto flex-wrap-inherit">
-                                <a className=" text-sm mr-4 ml-4 whitespace-nowrap font-bold text-white lg:ml-0"
-                                   href="#"> اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران </a>
+                            <div className="flex items-center justify-between w-full p-0 pl-6 mx-auto flex-wrap-inherit">
+
                                 <button
                                     className="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg ease-soft-in-out lg:hidden"
                                     type="button" aria-controls="navigation" aria-expanded="false"
@@ -163,7 +161,7 @@ const Header = () =>{
                                     </ul>
                                     <ul className="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
                                         <li>
-                                            <img src="/image/8.jpg" className="h-16 mix-blend-multiply"/>
+                                            <img src="/image/6-1.png" className="h-16 "/>
                                         </li>
                                     </ul>
                                 </div>
