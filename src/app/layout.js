@@ -1,14 +1,14 @@
-import Footer from '@/components/footer/Footer'
-import Header from '@/components/header/Header'
 import './globals.css'
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
+import Header from "@/components/header/Header";
+import Footer from "@/components/footer/Footer";
+import ContextProvider from "@/context/contextProvider/ContextProvider";
 
 export const metadata = {
   title: 'اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران',
   description: 'اتحادیه لوستر سازان تهران',
 }
-
 export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir='rtl'>
@@ -27,13 +27,15 @@ export default function RootLayout({ children }) {
       </head>
       <body
           className="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
-        <Header/>
+      <ContextProvider>
+      <Header/>
         <main className="ease-soft-in-out relative h-full max-h-screen rounded-xl transition-all duration-200">
             <div className="w-full  pt-10 mx-auto">
         {children}
        <Footer/>
             </div>
         </main>
+      </ContextProvider>
         </body>
     </html>
   )

@@ -1,7 +1,10 @@
 "use client"
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import { useClickOutside } from 'primereact/hooks';
+import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 const Header = () =>{
+    const { data: session } = useSession();
     const [humbergerMenuState,setHumbergerMenuState] = useState(true);
     const [sideBarMenuState,setSideBarMenuState] = useState(true);
     const [humbergerMenuExpand1,setHumbergerMenuExpand1] = useState('w-5.5 rounded-xs relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300');
@@ -45,6 +48,71 @@ const Header = () =>{
             setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-luster-2 bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
             setSideBarMenuState(true);
     });
+   const test = () =>{
+        console.log(session.user);
+    };
+   const showProfile = () =>{
+       console.log(session);
+       if(session == undefined){
+           return(
+               <>
+                   <li>
+                       <Link className={humbergerMenuExpand5}
+                             href={"/register"}>
+                           <i className="mr-3 fas fa-user-circle text-white"></i>
+                           <span className="mr-3 text-white">عضویت</span>
+                       </Link>
+                   </li>
+                   <li>
+                       <Link className={humbergerMenuExpand5}
+                             href={"#"}>
+                           <i className="mr-3 fas fa-key text-white"></i>
+                           <button onClick={test} className="mr-3 text-white"
+                           >
+                               ورود
+                           </button>
+                       </Link>
+                   </li>
+               </>
+           )
+       }else {
+           return (
+               <>
+                   <li>
+                       <Link className={humbergerMenuExpand5}
+                             href={"#"}>
+                           <i className="mr-3 fas fa-key text-white"></i>
+                           <button onClick={test} className="mr-3 text-white"
+                           >
+                               پروفایل
+                           </button>
+                       </Link>
+                   </li>
+               </>
+           )
+       }
+   }
+
+   const showUserDetail = () =>{
+       if(session == undefined){
+           return(
+               <>
+                   <li>
+                       <img src="/image/6-1.png" className="h-16 "/>
+                   </li>
+               </>
+           )
+       }else {
+           return (
+               <>
+                   <li>
+                       <img src={session.user.image} className="h-10 rounded-lg"/>
+                           <span className="text-blue-50">{session.user.name}</span>
+                   </li>
+               </>
+           )
+       }
+   }
     return (
             <div className="container sticky top-0 z-sticky  text-white">
                 <div className="flex flex-wrap">
@@ -144,25 +212,10 @@ const Header = () =>{
                                                 <span className="mr-3 text-white">درباره ما</span>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a className={humbergerMenuExpand5}
-                                               href="#">
-                                                <i className="mr-3 fas fa-user-circle text-white"></i>
-                                                <span className="mr-3 text-white">عضویت</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className={humbergerMenuExpand5}
-                                               href="#">
-                                                <i className="mr-3 fas fa-key text-white"></i>
-                                                <span className="mr-3 text-white">ورود</span>
-                                            </a>
-                                        </li>
+                                        {showProfile()}
                                     </ul>
                                     <ul className="hidden pl-0 mb-0 list-none lg:block lg:flex-row">
-                                        <li>
-                                            <img src="/image/6-1.png" className="h-16 "/>
-                                        </li>
+                                        {showUserDetail()}
                                     </ul>
                                 </div>
                             </div>
