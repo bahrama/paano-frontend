@@ -48,12 +48,9 @@ const Header = () =>{
             setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-luster-2 bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
             setSideBarMenuState(true);
     });
-   const test = () =>{
-        console.log(session.user);
-    };
    const showProfile = () =>{
        console.log(session);
-       if(session == undefined){
+       if(session == undefined || session ==null){
            return(
                <>
                    <li>
@@ -65,9 +62,9 @@ const Header = () =>{
                    </li>
                    <li>
                        <Link className={humbergerMenuExpand5}
-                             href={"#"}>
+                             href={"/login"}>
                            <i className="mr-3 fas fa-key text-white"></i>
-                           <button onClick={test} className="mr-3 text-white"
+                           <button className="mr-3 text-white"
                            >
                                ورود
                            </button>
@@ -94,7 +91,7 @@ const Header = () =>{
    }
 
    const showUserDetail = () =>{
-       if(session == undefined){
+       if(session == undefined || session ==null){
            return(
                <>
                    <li>
