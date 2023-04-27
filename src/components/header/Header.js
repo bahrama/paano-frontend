@@ -49,7 +49,6 @@ const Header = () =>{
             setSideBarMenuState(true);
     });
    const showProfile = () =>{
-       console.log(session);
        if(session == undefined || session ==null){
            return(
                <>
@@ -79,7 +78,7 @@ const Header = () =>{
                        <Link className={humbergerMenuExpand5}
                              href={"#"}>
                            <i className="mr-3 fas fa-key text-white"></i>
-                           <button onClick={test} className="mr-3 text-white"
+                           <button className="mr-3 text-white"
                            >
                                پروفایل
                            </button>
@@ -203,11 +202,11 @@ const Header = () =>{
                                             </ul>
                                         </li>
                                         <li>
-                                            <a className={humbergerMenuExpand5}
-                                               aria-current="page" href="#">
+                                            <Link  className={humbergerMenuExpand5}
+                                               aria-current="page" href={"/about"}>
                                                 <i className="mr-3 fa fa-chart-pie text-white"></i>
                                                 <span className="mr-3 text-white">درباره ما</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         {showProfile()}
                                     </ul>
