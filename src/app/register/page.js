@@ -1,5 +1,6 @@
 "use client"
 import {useSession , signIn , signOut} from "next-auth/react";
+import Link from "next/link";
 const Register = () => {
     const googleSighIn = (e) =>{
         console.log("GGGGGGGGGogle");
@@ -88,8 +89,8 @@ const Register = () => {
                                                 عضویت
                                             </button>
                                         </div>
-                                        <p className="mt-4 mb-0 leading-normal text-sm">اگر قبلا عضو شده اید <a
-                                            href="../pages/sign-in.html" className="font-bold text-slate-700">ورود</a></p>
+                                        <p className="mt-4 mb-0 leading-normal text-sm">اگر قبلا عضو شده اید <Link
+                                            href={"/login"} className="font-bold text-slate-700">ورود</Link></p>
                                     </form>
                                 </div>
                             </div>

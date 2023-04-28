@@ -1,15 +1,20 @@
 import './globals.css'
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
+import 'primeicons/primeicons.css';
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import ContextProvider from "@/context/contextProvider/ContextProvider";
+import axios from "axios";
 
 export const metadata = {
   title: 'اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران',
   description: 'اتحادیه لوستر سازان تهران',
 }
 export default function RootLayout({ children }) {
+    axios.defaults.url = process.env.api_default_url;
+    axios.defaults.headers.post['Content-Type'] =process.env.api_content_type;
+    //axios.defaults.headers.common['Authorization'] = process.env.api_ordinary_user_token;
   return (
     <html lang="fa" dir='rtl'>
       <head>

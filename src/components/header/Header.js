@@ -134,11 +134,11 @@ const Header = () =>{
                                     className={humbergerMenuExpand4}>
                                     <ul className="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto ">
                                         <li>
-                                            <a className={humbergerMenuExpand5}
-                                               aria-current="page" href="#">
+                                            <Link className={humbergerMenuExpand5}
+                                               aria-current="page" href={"/"}>
                                                 <i className="mr-3 fa fa-chart-pie text-white"></i>
                                                 <span className="mr-3 text-white">خانه</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li>
                                             <a className={humbergerMenuExpand5}>
