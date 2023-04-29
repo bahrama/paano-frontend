@@ -32,9 +32,13 @@ const Main = () =>{
       </section>
       <section className=" container mx-auto px-10 font-bold mt-0 md:mt-20 font-vazir">
           <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
-              <div className="header-btn ">
-                  <p className="leading-10 pt-3 mb-0">اخبار</p>
+              <Link href={"/news"}>
+              <div className="header-btn h-[75px]">
+                  <p className="leading-10 pt-3 mb-0">
+                            اخبار
+                  </p>
               </div>
+              </Link>
               <div className="header-btn">
                   <p className="leading-10 pt-3 mb-0">اعضای هیئت مدیره</p>
               </div>
@@ -54,7 +58,7 @@ const Main = () =>{
       <section>
               <div className='container mx-auto  py-2 px-10'>
                   <div className="flex flex-col-reverse sm:flex-row gap-5 items-center">
-                      <div className="basis-1/3 mt-[100px] sm:mt-[100px] md:mt-0 w-full rounded-lg font-vazir">
+                      <div className="basis-1/3 mt-0 sm:mt-[100px] md:mt-0 w-full rounded-lg font-vazir">
                             <div className="text-white  bg-luster-2 text-center py-5 mb-[42px]">
                                 رسته های شغلی
                             </div>
@@ -75,7 +79,7 @@ const Main = () =>{
                           </div>
                       </div>
                       <div className="basis-2/3 h-[500px] w-full ">
-                          <div className='grid grid-cols-1 gap-4 place-items-center h-96 rounded-lg'>
+                          <div className='grid grid-cols-1 gap-4 place-items-center  rounded-lg'>
                               <CustomSlider />
                           </div>
                       </div>
