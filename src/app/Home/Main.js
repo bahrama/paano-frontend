@@ -19,10 +19,10 @@ const Main = () =>{
       <section className="container mx-auto px-10 mt-1">
             <div className="main-header-logo">
                 <div className="relative mx-auto">
-                    <img className="main-header-logo-1" src="/image/ir.png"/>
-                    <img className="main-header-logo-2" src="/image/6.jpg"/>
+                    <img className="main-header-logo-1" src="/image/ir.png" alt="main-header-logo-1"/>
+                    <img className="main-header-logo-2" src="/image/6.jpg" alt="main-header-logo-2"/>
                     <div className="flex flex-row">
-                        <img className="main-header-logo-3" src="/image/134.jpg"/>
+                        <img className="main-header-logo-3" src="/image/134.jpg" alt="main-header-logo-3"/>
                         <p className="main-header-logo-title">
                             اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران
                         </p>
