@@ -1,0 +1,38 @@
+[
+  {
+    "departmentName":"اعضای هیئت مدیره",
+    "membersOfDepartment":
+    [
+      {
+        "firstName":"حمیدرضا",
+        "lastName": "منافی قلعه جوق",
+        "capacity": "رئیس هیئت مدیره"
+      },
+      {
+        "firstName":"مریم",
+        "lastName": "شهبازی",
+        "capacity": "نائب رئیس اول هیئت مدیره"
+      },
+      {
+        "firstName":"امیر خسرو ",
+        "lastName": "پاک نژاد مقدم",
+        "capacity": "نائب رئیس دوم هیئت مدیره"
+      },
+      {
+        "firstName":"امیر حسین ",
+        "lastName": "زارعیان",
+        "capacity": "خزانه دار هیئت مدیره"
+      },
+      {
+        "firstName":"محسن ",
+        "lastName": "بهارلوئی",
+        "capacity": "دبیر هیئت مدیره"
+      },
+      {
+        "firstName":"سعید  ",
+        "lastName": "رمضان",
+        "capacity": "بازرس"
+      }
+    ]
+  }
+]

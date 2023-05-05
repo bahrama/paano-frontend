@@ -1,0 +1,132 @@
+[
+  {
+    "departmentName":"واحد اداری",
+    "membersOfDepartment":
+    [
+      {
+        "firstName":"حمیدرضا",
+        "lastName": "نصیری",
+        "capacity": "مدیر اجرایی"
+      },
+      {
+        "firstName":"پریسا",
+        "lastName": "خان پور",
+        "capacity": "مسئول امور اداری"
+      },
+      {
+        "firstName":"محمد",
+        "lastName": "ترده",
+        "capacity": "مسئول بایگانی"
+      }
+    ]
+  },
+  {
+    "departmentName":"مشاورین",
+    "membersOfDepartment":
+    [
+      {
+        "firstName":"سعید",
+        "lastName": "فوقی",
+        "capacity": "مشاور مالیاتی"
+      },
+      {
+        "firstName":"بهاره",
+        "lastName": "کریمی",
+        "capacity": "مشاور حقوقی"
+      }
+    ]
+  },
+  {
+    "departmentName":"کمیسیون رسیدگی به شکایات",
+    "membersOfDepartment":
+    [
+      {
+        "firstName":"رحیم",
+        "lastName": "زرگر آزاد",
+        "capacity": ""
+      },
+      {
+        "firstName":"رفیع",
+        "lastName": "شهبازی",
+        "capacity": ""
+      },
+      {
+        "firstName":"احسان",
+        "lastName": "دهاقین",
+        "capacity": ""
+      },
+      {
+        "firstName":"جعفر",
+        "lastName": "شاهگلدی",
+        "capacity": ""
+      },
+      {
+        "firstName":"قاسم",
+        "lastName": "پور قزوینی",
+        "capacity": ""
+      }
+    ]
+  },
+  {
+    "departmentName":"کمیسیون بازرسی",
+    "membersOfDepartment":
+    [
+      {
+        "firstName":"مالک",
+        "lastName": "رضایی",
+        "capacity": ""
+      },
+      {
+        "firstName":"نادر",
+        "lastName": "شکری",
+        "capacity": ""
+      },
+      {
+        "firstName":"یداله",
+        "lastName": "خوشنویسان",
+        "capacity": ""
+      },
+      {
+        "firstName":"حمیدرضا",
+        "lastName": "نصیری یکتا",
+        "capacity": ""
+      },
+      {
+        "firstName":"حسن",
+        "lastName": "قاسمی",
+        "capacity": ""
+      }
+    ]
+  },
+  {
+    "departmentName":"کمیسیون فنی",
+    "membersOfDepartment":
+    [
+      {
+        "firstName":"محمد صادق",
+        "lastName": "انصاری",
+        "capacity": ""
+      },
+      {
+        "firstName":"محسن",
+        "lastName": "بروجردی",
+        "capacity": ""
+      },
+      {
+        "firstName":"محمد",
+        "lastName": "تقی انصاری",
+        "capacity": ""
+      },
+      {
+        "firstName":"ابراهیم",
+        "lastName": "یزدان پرست",
+        "capacity": ""
+      },
+      {
+        "firstName":"محمد رضا",
+        "lastName": "مفیدی شیرازی",
+        "capacity": null
+      }
+    ]
+  }
+]

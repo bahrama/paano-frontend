@@ -25,6 +25,13 @@
     .mx-h-700{
         max-height: 700px;
     }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
 }
 
 @layer base{
@@ -65,7 +72,7 @@
         @apply border text-center hover:border-luster-1 rounded-lg smallphone:w-20 smallphone:h-14 sm:w-60 sm:h-10
     }
     .header-btn{
-        @apply text-center bg-luster-2  border-b-[8px] border-b-luster-1 text-white align-middle border-2 shadow-xl
+        @apply text-center bg-luster-2  border-b-[8px] border-b-luster-1 text-white align-middle border-2 shadow-xl h-[75px]
     }
     .about-img{
         @apply
@@ -73,8 +80,29 @@
     }
     .container-about{
         @apply
-        container mx-auto h-[900px] font-vazir text-base text-justify
+        container mx-auto px-32 h-[900px] font-vazir text-base text-justify
     }
+    /* preside page design start */
+    .img-preside{
+        @apply float-left
+        border-8  border-luster-1 border-double
+        rounded-2xl  mx-16 sm:mx-10 md:mx-3 mb-4
+        w-[200px] h-[200px]
+        object-contain  mix-blend-multiply
+
+    }
+    .header-preside{
+        @apply
+        border-b-4 border-b-luster-1
+    }
+    .container-preside{
+        @apply
+        container
+        mx-auto  pt-24
+        h-[900px]
+        font-vazir text-base text-justify
+    }
+    /* preside page design end */
     .small-menu-item{
         @apply
         lg:grid lg:grid-cols-3 gap-2 md:grid md:grid-cols-2
@@ -117,4 +145,53 @@
     .cusw75{
         width: 75%!important;
     }
+    /* preside colleague design start */
+    .members-header{
+        @apply py-2 border-b-2 border-b-luster-1 text-center text-white bg-luster-2
+    }
+    .members-list{
+        @apply grid grid-cols-1
+        sm:grid sm:grid-cols-2
+        lg:grid lg:grid-cols-3
+        flex  justify-center items-center
+    }
+    .card{
+        @apply w-[220px] h-auto
+        bg-amber-50  drop-shadow-xl rounded-xl
+        text-center text-luster-2 my-2 mx-auto
+    }
+    .card-image{
+        @apply w-28 h-28 mt-2
+        rounded-full mt-5
+        justify-center mx-auto
+    }
+    .card-btn{
+        @apply border border-luster-1
+        px-5  mb-5 rounded-xl
+        hover:bg-luster-2 hover:text-luster-1 hover:duration-300
+    }
+    /* colleagues page design end */
+    /* preside dashboard design start */
+    .dashboard-aside{
+        /*max-w-62.5 ease-nav-brand z-990 ps ps__rtl transition-transform translate-x-full overflow-y-auto xl:translate-x-0 xl:bg-transparent*/
+        @apply   z-[100]  fixed
+        inset-y-0 my-4 mr-4 block   flex-wrap items-center
+        justify-between  rounded-2xl border-0 bg-white p-0 antialiased
+        shadow-none  duration-700 xl:right-0
+    }
+    .dashboard-controller{
+        @apply absolute
+        top-0 right-0 text-2xl
+        hidden p-4 opacity-50 cursor-pointer
+        text-slate-400 xl:hidden
+    }
+    .dashboard-aside-logo{
+        /* ease-nav-brand  max-w-full max-h-8  h-full*/
+        @apply inline  transition-all duration-200 w-16 h-auto
+    }
+    .dashboard-panel-name{
+        /*mr-1 font-semibold transition-all duration-200 ease-nav-brand*/
+        @apply  font-vazir
+    }
+    /* preside dashboard design start */
 }
