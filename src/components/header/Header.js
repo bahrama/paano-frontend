@@ -49,7 +49,7 @@ const Header = () =>{
             setSideBarMenuState(true);
     });
    const showProfile = () =>{
-       if(session == undefined || session ==null){
+       if(session === undefined || session ===null){
            return(
                <>
                    <li>
@@ -90,7 +90,7 @@ const Header = () =>{
    }
 
    const showUserDetail = () =>{
-       if(session == undefined || session ==null){
+       if(session === undefined || session ===null){
            return(
                <>
                    <li>
@@ -108,6 +108,7 @@ const Header = () =>{
                </>
            )
        }
+       console.log(session);
    }
     return (
             <div className="container sticky top-0 z-sticky  text-white">

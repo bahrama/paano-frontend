@@ -2,10 +2,44 @@
 import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import Link from "next/link";
+import {InputText} from "primereact/inputtext";
+import {classNames} from "primereact/utils";
+import {useForm , Controller} from "react-hook-form";
+import axios from "axios";
+import {Password} from "primereact/password";
+import { Toast } from 'primereact/toast';
+import './login.css';
+import {useRef, useState} from "react";
 const Login = () => {
+    const [showMessage, setShowMessage] = useState(false);
+    const [formData, setFormData] = useState({});
+    const toast = useRef(null);
+    const defaultValues = {
+        email: '',
+        password: ''
+    }
+    const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
     const backImg = '/assets/img/curved-images/curved6.jpg';
+    const getFormErrorMessage = (name) => {
+        return errors[name] && <small className="p-error">{errors[name].message}</small>
+    };
+    const onSubmit = (data) => {
+        console.log(data);
+        setFormData(data);
+        axios
+            .post("http://localhost:8082/user/login", data)
+            .then((response) =>
+                toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'})
+            )
+            .catch((error) =>
+                toast.current.show({severity: 'error', summary: error.response.data.message, sticky: true})
+            );
+        setShowMessage(true);
+        reset();
+    };
     return (
         <main class="mt-0 transition-all duration-200 ease-soft-in-out">
+            <Toast ref={toast} />
             <section style={{direction : "initial"}}>
                 <div class="relative flex items-center p-0 overflow-hidden bg-center bg-cover min-h-75-screen">
                     <div class="container z-10">
@@ -19,27 +53,30 @@ const Login = () => {
                                         <p class="mb-0 text-right">برای ورود لطفا ایمیل و رمز عبور خود را وارد نمایید</p>
                                     </div>
                                     <div class="flex-auto p-6">
-                                        <form role="form" style={{direction:"rtl"}}>
-                                            <label className="mb-2 ml-1 font-bold text-xs text-slate-700">ایمیل</label>
+                                        <form role="form" style={{direction:"rtl"}} onSubmit={handleSubmit(onSubmit)}>
                                             <div class="mb-4">
-                                                <input type="email"
-                                                       className="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                                                       placeholder="ایمیل" aria-label="Email"
-                                                       aria-describedby="email-addon"/>
+                                                                                <span style={{direction:"ltr"}}>
+                                            <i className="pi pi-envelope" />
+                                            <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>ایمیل </label>
+                                                <br/>
+                                                <Controller name="email" control={control}
+                                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                                            render={({ field, fieldState }) => (
+                                                                <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
+                                                            )} />
+                                            </span>
+                                                {getFormErrorMessage('email')}
                                             </div>
-                                            <label
-                                                className="mb-2 ml-1 font-bold text-xs text-slate-700">رمز عبور</label>
                                             <div class="mb-4">
-                                                <input type="email"
-                                                       className="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
-                                                       placeholder="رمز عبور" aria-label="Password"
-                                                       aria-describedby="password-addon"/>
+                                                <span>
+                                            <label htmlFor="password">رمز عبور </label>
+                                                <Controller name="password" control={control} rules={{ required: 'رمز عبور را وارد نمایید' }} render={({ field, fieldState }) => (
+                                                    <Password id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} feedback={false} style={{width:'100%'}}/>                                                )} />
+                                                </span>
+                                                {getFormErrorMessage('password')}
                                             </div>
                                             <div class="text-center">
-                                                <button type="button"
-                                                        className="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-blue-600 to-cyan-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">
-                                                    ورود
-                                                </button>
+                                                <Button type="submit" label="ورود" className="p-button-outlined p-button-success" style={{width:'100%'}}/>
                                             </div>
                                         </form>
                                     </div>
