@@ -20,20 +20,8 @@ const AdvertismentSlider = () =>{
 
     const photoService = [
         {
-            "itemImageSrc": "https://www.tehcfu.com/resources/pic/banner.jpg",
-            "thumbnailImageSrc": "https://www.tehcfu.com/resources/pic/banner.jpg",
-            "alt": "Description for Image 1",
-            "title": "Title 1"
-        },
-        {
-            "itemImageSrc": "https://www.tehcfu.com/resources/pic/site2.jpg",
-            "thumbnailImageSrc": "https://www.tehcfu.com/resources/pic/site2.jpg",
-            "alt": "Description for Image 1",
-            "title": "Title 1"
-        },
-        {
-            "itemImageSrc": "https://www.tehcfu.com/resources/pic/banner.jpg",
-            "thumbnailImageSrc": "https://www.tehcfu.com/resources/pic/banner.jpg",
+            "itemImageSrc": "/image/pic/banner.jpg",
+            "thumbnailImageSrc": "/image/pic/banner.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         }

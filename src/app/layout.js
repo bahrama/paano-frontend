@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
           className="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
       <SessContextProvider>
       <Header/>
-        <main className="ease-soft-in-out relative h-full max-h-screen rounded-xl transition-all duration-200">
+        <main className="ease-soft-in-out relative h-auto max-h-fit	 rounded-xl transition-all duration-200">
             <div className="w-full  pt-10 mx-auto">
         {children}
        <Footer/>

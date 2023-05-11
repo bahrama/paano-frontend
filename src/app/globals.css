@@ -72,7 +72,10 @@
         @apply border text-center hover:border-luster-1 rounded-lg smallphone:w-20 smallphone:h-14 sm:w-60 sm:h-10
     }
     .header-btn{
-        @apply text-center bg-luster-2  border-b-[8px] border-b-luster-1 text-white align-middle border-2 shadow-xl h-[75px]
+        @apply text-center
+        bg-luster-2  border-b-[8px] border-b-luster-1
+        text-white align-middle
+        border-2 shadow-xl h-[75px]
     }
     .about-img{
         @apply
@@ -80,8 +83,56 @@
     }
     .container-about{
         @apply
-        container mx-auto px-32 h-[900px] font-vazir text-base text-justify
+        container
+        bg-red-400
+        mx-auto pt-32 h-auto
+        font-vazir text-base text-justify
     }
+
+    /* profile page dashboard start */
+    .container-profile-dashboard{
+        @apply container mx-auto p-10  font-bold  font-vazir gap-3
+
+
+    }
+    .col-profile{
+        @apply  px-10 py-5 text-black text-center
+    }
+
+    .col-profile-2{
+        @apply    py-5
+        grid grid-cols-1
+        md:grid-cols-3 gap-3 md:px-10 md:pt-16
+    }
+
+    .col-profile-address{
+        @apply  col-span-3
+    }
+    .col-profile img{
+        @apply w-32 h-32 rounded-full border-4 border-luster-2 border-opacity-10 mx-auto mb-5
+    }
+    /* profile page dashboard end */
+
+    /* preside page main start */
+    .container-banner{
+        @apply container
+        mx-auto px-10
+        font-vazir bg-red-200
+        container mx-auto px-10 mt-1
+
+    }
+    .card-banner{
+        @apply text-white text-center
+        w-[370px]
+    }
+    .card-banner p {
+        @apply py-3 border-2 border-luster-2 mt-2
+    }
+    .img-banner{
+        @apply w-[370px]
+    }
+    /* preside page main start */
+
     /* preside page design start */
     .img-preside{
         @apply float-left
@@ -94,13 +145,6 @@
     .header-preside{
         @apply
         border-b-4 border-b-luster-1
-    }
-    .container-preside{
-        @apply
-        container
-        mx-auto  pt-24
-        h-[900px]
-        font-vazir text-base text-justify
     }
     /* preside page design end */
     .small-menu-item{
@@ -166,9 +210,9 @@
         justify-center mx-auto
     }
     .card-btn{
-        @apply border border-luster-1
+        @apply bg-luster-1 text-white
         px-5  mb-5 rounded-xl
-        hover:bg-luster-2 hover:text-luster-1 hover:duration-300
+        hover:scale-125 hover:duration-300
     }
     /* colleagues page design end */
     /* preside dashboard design start */

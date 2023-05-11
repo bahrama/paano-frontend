@@ -16,7 +16,6 @@ const MemberShipComponenet = ()=>{
                                                     <img src="/image/user.jpeg" className={`card-image`}/>
                                                     <h4 className={`mt-5`}>{child.firstName+" "+child.lastName}</h4>
                                                     <p>{child.capacity}</p>
-                                                    <button className={`card-btn`}>بیشتر</button>
                                                 </div>
                                             </>
                                         ))

@@ -4,10 +4,6 @@ const Footer = () =>{
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
         <footer className="bg-luster-2 font-vazir text-lg text-white">
             <div className="px-2 lg:grid lg:grid-cols-3 sm:grid sm:grid-cols-1 pt-8 pb-2">
                 <div className="w-auto px-2">
