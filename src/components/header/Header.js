@@ -3,7 +3,11 @@ import {useEffect, useRef, useState} from "react";
 import { useClickOutside } from 'primereact/hooks';
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { setCookie ,getCookie , deleteCookie} from 'cookies-next';
+import { useSessionStorage } from 'primereact/hooks';
+import axios from "axios";
 const Header = () =>{
+    const [userInfo, setUserInfo] = useSessionStorage('', 'userInfo');
     const { data: session } = useSession();
     const [humbergerMenuState,setHumbergerMenuState] = useState(true);
     const [sideBarMenuState,setSideBarMenuState] = useState(true);
@@ -48,8 +52,44 @@ const Header = () =>{
             setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-luster-2 bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
             setSideBarMenuState(true);
     });
+    const findUserByCookie = () => {
+        console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+        console.log(getCookie('auth'));
+        axios
+            .post("http://localhost:8082/user", {} ,
+                {
+                    headers : {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getCookie('auth')
+                    }
+                })
+            .then((response) =>
+                {
+                    console.log("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
+                    console.log(response.data);
+                    setUserInfo(response.data.username)
+                }
+            )
+            .catch((error) =>{
+                console.log(error.response.data.message);
+                }
+            );
+    }
+    useEffect(() => {
+        if(userInfo===''){
+            findUserByCookie();
+        }
+        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+        console.log(userInfo);
+        console.log("signWithGoogleFirst");
+    }, [userInfo]);
+    const exitApp = () =>{
+        signOut();
+        deleteCookie('auth');
+        setUserInfo('');
+    }
    const showProfile = () =>{
-       if(session === undefined || session ===null){
+       if(userInfo===''){
            return(
                <>
                    <li>
@@ -84,13 +124,23 @@ const Header = () =>{
                            </button>
                        </Link>
                    </li>
+                   <li>
+                       <Link className={humbergerMenuExpand5}
+                             href={"#"}>
+                           <i className="mr-3 fas fa-key text-white"></i>
+                           <button onClick={exitApp}  className="mr-3 text-white"
+                           >
+                               خروج
+                           </button>
+                       </Link>
+                   </li>
                </>
            )
        }
    }
 
    const showUserDetail = () =>{
-       if(session === undefined || session ===null){
+       if(userInfo===''){
            return(
                <>
                    <li>
@@ -102,13 +152,12 @@ const Header = () =>{
            return (
                <>
                    <li>
-                       <img src={session.user.image} className="h-10 rounded-lg"/>
-                           <span className="text-blue-50">{session.user.name}</span>
+                      {/* <img src={session.user.image} className="h-10 rounded-lg"/>*/}
+                           <span className="text-blue-50">{userInfo}</span>
                    </li>
                </>
            )
        }
-       console.log(session);
    }
     return (
             <div className="container sticky top-0 z-sticky  text-white">

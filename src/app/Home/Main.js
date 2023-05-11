@@ -10,7 +10,6 @@ import "primeicons/primeicons.css";
 import { Button } from 'primereact/button';
 import CustomSlider from "@/components/slider/CustomSlider";
 import AdvertismentSlider from "@/components/slider/AdvertismentSlider";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 import React from 'react';
 import Link from 'next/link';
 const Main = () =>{

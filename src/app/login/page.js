@@ -9,11 +9,20 @@ import axios from "axios";
 import {Password} from "primereact/password";
 import { Toast } from 'primereact/toast';
 import './login.css';
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import { setCookie ,getCookie} from 'cookies-next';
+import { useRouter } from 'next/navigation';
 const Login = () => {
+    const router = useRouter();
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
     const toast = useRef(null);
+    useEffect(() => {
+        if(getCookie('auth')!=null)
+        {
+            router.push('/');
+        }
+    }, []);
     const defaultValues = {
         email: '',
         password: ''
@@ -28,8 +37,14 @@ const Login = () => {
         setFormData(data);
         axios
             .post("http://localhost:8082/user/login", data)
-            .then((response) =>
-                toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'})
+            .then((response) => {
+                toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'});
+                console.log(response.data.token);
+                setCookie('auth',response.data.token.replace("Bearer ", "") , {maxAge: 60 * 60 * 24 * 30 });
+                setTimeout(function() {
+                    router.push('/');
+                }, 2000);
+                }
             )
             .catch((error) =>
                 toast.current.show({severity: 'error', summary: error.response.data.message, sticky: true})
