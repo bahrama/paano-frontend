@@ -30,7 +30,7 @@ const Register = () => {
     const googleSighIn = (e) =>{
         console.log("GGGGGGGGGogle");
        // e.preventDefault();
-        signIn("google", { callbackUrl: "http://localhost:3000/register" });
+        signIn("google", { callbackUrl: "https://tehranch.com/register" });
     };
     useEffect(() => {
         if(getCookie('auth')!=null)
@@ -53,7 +53,7 @@ const Register = () => {
     const onSubmit = (data) => {
         setFormData(data);
         axios
-            .post("http://localhost:8082/user/register", data)
+            .post("http://172.18.0.4:8082/user/register", data)
             .then((response) =>
             {
                 toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'});
@@ -73,7 +73,7 @@ const Register = () => {
         console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
         console.log(getCookie('auth'));
         axios
-            .post("http://localhost:8082/user", {} ,
+            .post("http://172.18.0.4:8082/user", {} ,
                 {
                     headers : {
                         'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const Register = () => {
         console.log(data);
         setFormData(data);
         axios
-            .post("http://localhost:8082/user/register", data)
+            .post("http://172.18.0.4:8082/user/register", data)
             .then((response) =>
             {
                 toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'})
@@ -104,7 +104,7 @@ const Register = () => {
                     router.push('/');
                 }, 2000);
                 axios
-                    .post("http://localhost:8082/user/login", data)
+                    .post("http://172.18.0.4:8082/user/login", data)
                     .then((response) => {
                             console.log(response.data.token);
                             setCookie('auth',response.data.token.replace("Bearer ", ""), {maxAge: 60 * 60 * 24 });
@@ -122,7 +122,7 @@ const Register = () => {
                     if(error.response.data.statusCode===555){
                         setSignWithGoogleFirst(true);
                         axios
-                            .post("http://localhost:8082/user/login", data)
+                            .post("http://172.18.0.4:8082/user/login", data)
                             .then((response) => {
                                 toast.current.show({severity: 'success', summary: 'خوش آمدید .'})
                                     setCookie('auth',response.data.token.replace("Bearer ", ""), {maxAge: 60 * 60 * 24 * 30 });
