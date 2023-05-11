@@ -197,52 +197,52 @@ const Header = () =>{
                                             </a>
                                             <ul dropdown-menu ref={overlayRef}
                                                 className={sideBar}>
-                                                <li className="relative mb-2">
+                                                <li className="relative mb-2 w-[200px]">
                                                     <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors"
                                                        href="javascript:;">
                                                         <div className="flex py-1">
                                                             <div className="my-auto">
-                                                                <img src=""
-                                                                     className="inline-flex items-center justify-center ml-4 text-white text-sm h-9 w-9 max-w-none rounded-xl"/>
+                                                                <img src="/image/product/luster-menu.jpg"
+                                                                     className="object-center object-fill items-center justify-center ml-4  h-9 w-9 max-w-none rounded-xl"/>
                                                             </div>
                                                             <div className="flex flex-col justify-center">
                                                                 <h6 className="mb-1 font-normal leading-normal text-sm">
                                                                     <span
-                                                                        className="font-semibold text-white">لوستر آپارتمان</span></h6>
+                                                                        className="font-semibold text-white">لوستر اتاق خواب</span></h6>
                                                             </div>
                                                         </div>
                                                     </a>
                                                 </li>
 
-                                                <li className="relative mb-2">
+                                                <li className="relative mb-2 w-[200px]">
                                                     <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
                                                        href="javascript:;">
                                                         <div className="flex py-1">
                                                             <div className="my-auto">
-                                                                <img src="../assets/img/small-logos/logo-spotify.svg"
+                                                                <img src="/image/product/abajor.jpg"
                                                                      className="inline-flex items-center justify-center ml-4 text-white text-sm bg-gradient-to-tl from-gray-900 to-slate-800 h-9 w-9 max-w-none rounded-xl"/>
                                                             </div>
                                                             <div className="flex flex-col justify-center">
                                                                 <h6 className="mb-1 font-normal leading-normal text-sm">
                                                                     <span
-                                                                        className="font-semibold text-white">لوستر اداری</span></h6>
+                                                                        className="font-semibold text-white">آباژور</span></h6>
 
                                                             </div>
                                                         </div>
                                                     </a>
                                                 </li>
-                                                <li className="relative mb-2">
+                                                <li className="relative mb-2 w-[200px]">
                                                     <a className="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700"
                                                        href="javascript:;">
                                                         <div className="flex py-1">
                                                             <div className="my-auto">
-                                                                <img src="../assets/img/small-logos/logo-spotify.svg"
-                                                                     className="inline-flex items-center justify-center ml-4 text-white text-sm bg-gradient-to-tl from-gray-900 to-slate-800 h-9 w-9 max-w-none rounded-xl"/>
+                                                                <img src="/image/product/luster-top.jpg"
+                                                                     className="object-center object-fill items-center justify-center ml-4  h-9 w-9 max-w-none rounded-xl"/>
                                                             </div>
                                                             <div className="flex flex-col justify-center">
                                                                 <h6 className="mb-1 font-normal leading-normal text-sm">
                                                                     <span
-                                                                        className="font-semibold text-white">لوستر مجتمع</span></h6>
+                                                                        className="font-semibold text-white">لوستر سقفی</span></h6>
 
                                                             </div>
                                                         </div>

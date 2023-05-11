@@ -11,7 +11,7 @@ const News = ()=>{
     return(
         <Dashboard>
             <section>
-                <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} style={{ height: '320px' }} />
+                <Editor value={text} onTextChange={(e) => setText(e.value)} style={{ height: '320px' }} />
                 <div>
                     <Button label="ذخیره" icon="pi pi-check" size="large"/>
                     <Button label="پاک کردن" severity="secondary" size="small" />

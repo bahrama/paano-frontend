@@ -12,6 +12,7 @@ import CustomSlider from "@/components/slider/CustomSlider";
 import AdvertismentSlider from "@/components/slider/AdvertismentSlider";
 import React from 'react';
 import Link from 'next/link';
+import ProductCarousel from "@/components/productCarousel/ProductCarousel";
 const Main = () =>{
     return(
       <>
@@ -108,18 +109,18 @@ const Main = () =>{
       <section className=" container mx-auto px-10 font-vazir font-bold">
               <div className="small-menu-item">
                   <div className="header-btn ">
-                      <p className="leading-10 mb-0 ">صدور پروانه کسب</p>
+                      <p className="leading-[4rem] mb-0 p-0 ">صدور پروانه کسب</p>
                   </div>
                   <div className="header-btn ">
-                      <p className="leading-10 mb-0">تمدید پروانه کسب</p>
+                      <p className="leading-[4rem] mb-0">تمدید پروانه کسب</p>
                   </div>
                   <div className="header-btn">
-                      <p className="leading-10 mb-0">مدارک مورد نیاز مباشرت</p>
+                      <p className="leading-[4rem] mb-0">مدارک مورد نیاز مباشرت</p>
                   </div>
               </div>
       </section>
           <br/>
-<section>
+        <section>
       <div className='container font-vazir'>
           <div class="md:w-[500px]  lg:w-auto my-auto lg:grid lg:grid-cols-3 gap-4 sm:grid sm:grid-cols-1 sm:mx-auto items-center">
               <Link href={'/'}>
@@ -149,6 +150,37 @@ const Main = () =>{
               </div>
           </section>
       <br/>
+          <section>
+              <div className={`container mx-auto px-10`}>
+                  {/*<ProductCarousel/>*/}
+                  product  carousel
+              </div>
+          </section>
+      <br/>
+          <section>
+              <div className='container font-vazir'>
+                  <div class="md:w-[500px]  lg:w-auto my-auto lg:grid lg:grid-cols-3 gap-4 sm:grid sm:grid-cols-1 sm:mx-auto items-center">
+                      <Link href={'/'}>
+                          <div className=" basis-1/3 md:h-96 md:py-3 w-full">
+                              <img className="lg:mr-0 h-full rounded-lg w-full" src="/image/pic/banner1.jpg"/>
+                              <h5 className='text-center border-2'>طرح های خلاقیت</h5>
+                          </div>
+                      </Link>
+                      <Link href={'/'}>
+                          <div class="basis-1/3 md:h-96 md:py-3  w-full">
+                              <img className="lg:mr-0 h-full rounded-lg mix-blend-multiply w-full" src="/image/pic/banner2.jpg"/>
+                              <h5 className='text-center border-2'>خبرنامه نمایشگاهی</h5>
+                          </div>
+                      </Link>
+                      <Link href={'/'}>
+                          <div class=" basis-1/3 md:h-96 md:py-3 w-full">
+                              <img className="lg:mr-0 h-full rounded-lg w-full object-cover" src="/image/pic/banner3.jpg"/>
+                              <h5 className='text-center border-2'>دانستنی ها</h5>
+                          </div>
+                      </Link>
+                  </div>
+              </div>
+          </section>
       <br/>
 </>
     )
