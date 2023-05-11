@@ -4,7 +4,7 @@ import "primereact/resources/primereact.min.css";
 import 'primeicons/primeicons.css';
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
-import ContextProvider from "@/context/contextProvider/ContextProvider";
+import SessContextProvider from "@/context/contextProvider/SessContextProvider";
 import axios from "axios";
 
 export const metadata = {
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
       </head>
       <body
           className="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
-      <ContextProvider>
+      <SessContextProvider>
       <Header/>
         <main className="ease-soft-in-out relative h-full max-h-screen rounded-xl transition-all duration-200">
             <div className="w-full  pt-10 mx-auto">
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
        <Footer/>
             </div>
         </main>
-      </ContextProvider>
+      </SessContextProvider>
         </body>
     </html>
   )

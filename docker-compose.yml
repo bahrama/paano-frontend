@@ -1,27 +1,37 @@
 version: "3.8"
 
 services:
-  paano-front:
+  paano-front-con:
     build:
       ./paano-front
     ports:
       - "8080:3000"
-    restart: always
-  paano-back:
+    networks:
+      net1:
+        - ipv4_address: 172.18.0.2
+  paano-discovery-con:
     build:
-      ./paano-back
+      ./paano-discovery
+    ports:
+      - "8010:8010"
+    networks:
+      net1:
+        - ipv4_address: 172.18.0.3
+  paano-gateway-con:
+    build:
+      ./paano-gateway
     ports:
       - "8082:8082"
-    restart: always
-  rvp:
-    image: nginx:latest
+    networks:
+      net1:
+        - ipv4_address: 172.18.0.4
+  paano-user-con:
+    build:
+      ./paano-user
     ports:
-      - "80:80"
-    restart: always
-  cache:
-    image: redis:latest
-    ports:
-      - "6379:6379"
-    restart: always
+      - "8083:8083"
+    networks:
+      net1:
+        - ipv4_address: 172.18.0.5
 
 

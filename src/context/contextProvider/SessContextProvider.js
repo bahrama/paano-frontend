@@ -1,7 +1,7 @@
 "use client"
 import {SessionProvider} from "next-auth/react";
-import {AppContext} from "@/context/appContext/AppContext";
+import {SessContext} from "@/context/appContext/SessContext";
 import {useState} from "react";
-export default function ContextProvider({ children }) {
+export default function SessContextProvider({ children }) {
     return <SessionProvider>{children}</SessionProvider>;
 }
