@@ -56,7 +56,7 @@ const Header = () =>{
         console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
         console.log(getCookie('auth'));
         axios
-            .post("http://tehranch.com:8082/user", {} ,
+            .post("https://tehranch.com/api/user", {} ,
                 {
                     headers : {
                         'Content-Type': 'application/json',
