@@ -56,7 +56,7 @@ const Header = () =>{
         console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
         console.log(getCookie('auth'));
         axios
-            .post("http://172.18.0.4:8082/user", {} ,
+            .post("http://172.17.0.5:8082/user", {} ,
                 {
                     headers : {
                         'Content-Type': 'application/json',
