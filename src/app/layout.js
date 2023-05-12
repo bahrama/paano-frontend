@@ -20,9 +20,9 @@ export default function RootLayout({ children }) {
       <head>
           <meta charSet="UTF-8"/>
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png"/>
-          <link rel="icon" type="image/png" href="/assets/img/favicon.png"/>
-          <title>Soft UI Dashboard Tailwind</title>
+          <link rel="apple-touch-icon" sizes="76x76" href="/image/6.jpg"/>
+          <link rel="icon" type="image/png" href="/image/6.jpg"/>
+          <title>اتحادیه تولید کنندگان و فروشندگان لوستر شهرستان تهران</title>
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet"/>
           <script src="https://kit.fontawesome.com/42d5adcbca.js" crossOrigin="anonymous" async></script>
           <link href="/assets/css/nucleo-icons.css" rel="stylesheet"/>
