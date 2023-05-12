@@ -36,7 +36,7 @@ const Login = () => {
         console.log(data);
         setFormData(data);
         axios
-            .post("http://tehranch.com:8082/user/login", data)
+            .post("https://tehranch.com/api/user/login", data)
             .then((response) => {
                 toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'});
                 console.log(response.data.token);
