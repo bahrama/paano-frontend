@@ -27,7 +27,7 @@ const Register = () => {
         password: ''
     }
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
-    const googleSighIn = (e) =>{
+    const googleSighIn = () =>{
         console.log("GGGGGGGGGogle");
        // e.preventDefault();
         signIn("google", { callbackUrl: "https://tehranch.com/register" });
