@@ -174,7 +174,7 @@ const Register = () => {
                                 </div>
                                 <div className="flex flex-wrap px-3 -mx-3 sm:px-6 xl:px-12">
                                     <div className="w-3/12 max-w-full px-1 ml-auto flex-0">
-                                        <button disabled onClick={googleSighIn} className="inline-block h-16 w-full mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75"
+                                        <button onClick={googleSighIn} className="inline-block h-16 w-full mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75"
                                            >
                                             <img src="/google_cover.jpg" className="w-full h-full"/>
                                         </button>
