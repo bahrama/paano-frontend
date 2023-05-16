@@ -6,17 +6,12 @@
 </head>
 <body>
 <script type="text/javascript">
+    console.log("e1");
     var urlParams = new URLSearchParams(window.location.search);
-    var authCode = urlParams.get('code'),
-        state = urlParams.get('state'),
-        error = urlParams.get('error'),
-        errorDescription = urlParams.get('error_description');
-
-    if (error) {
-        window.alert("The following error took place:" +  error + ". Description of error:" + errorDescription);
-    } else {
-        localStorage.setItem("authCode", authCode);
-    }
+    var authCode = urlParams.get('code');
+    console.log(authCode);
+    console.log("e2");
+    localStorage.setItem("authCode", authCode);
     window.close();
 </script>
 </body>
