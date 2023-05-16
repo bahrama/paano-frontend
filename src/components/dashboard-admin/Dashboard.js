@@ -1,12 +1,8 @@
 "use client"
 import React, {useEffect, useState} from "react";
-import { InputText } from 'primereact/inputtext';
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import base64url from "base64url";
-import {sha256} from "js-sha256";
 import {getCookie} from "cookies-next";
-import {router} from "next/client";
 import {useRouter} from "next/navigation";
 import axios from "axios";
 const Dashboard = ({children}) =>{
