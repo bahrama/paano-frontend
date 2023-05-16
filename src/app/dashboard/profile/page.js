@@ -1,6 +1,6 @@
 "use client"
 import { InputText } from 'primereact/inputtext';
-import Dashboard from "@/components/dashboard/Dashboard";
+import Dashboard from "@/components/dashboard-user/Dashboard";
 import {Controller} from "react-hook-form";
 import {classNames} from "primereact/utils";
 import { InputTextarea } from 'primereact/inputtextarea';

@@ -1,6 +1,6 @@
 "use client"
 import CustomGrid from "@/components/customGrid/CustomGrid";
-import Dashboard from "@/components/dashboard/Dashboard";
+import Dashboard from "@/components/dashboard-user/Dashboard";
 import {useRef, useState} from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { Button } from 'primereact/button';
