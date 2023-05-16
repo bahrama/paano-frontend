@@ -1,5 +1,5 @@
 "use client"
-import Dashboard from "@/components/dashboard/Dashboard";
+import Dashboard from "@/components/dashboard-user/Dashboard";
 import React,{ useState } from "react";
 import {Panel} from "primereact/panel";
 import {Button} from "primereact/button";
