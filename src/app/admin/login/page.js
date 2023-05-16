@@ -51,14 +51,14 @@ const Login = () =>{
     function getAuthCode() {
         var state = generateState(30);
         var codeChallenge = generateCodeChallenge();
-        var authorizationURL = "http://192.168.43.22:8080/auth/realms/paano-realm3/protocol/openid-connect/auth";
-        /*var authorizationURL = "https://tehranch.com/auth/realms/tehranch-realm/protocol/openid-connect/auth";*/
-        /*authorizationURL += "?client_id=tehranch-paano";*/
-        authorizationURL += "?client_id=paano-front3";
+        /*var authorizationURL = "http://192.168.43.22:8080/auth/realms/paano-realm3/protocol/openid-connect/auth";*/
+        var authorizationURL = "https://tehranch.com/auth/realms/tehranch-realm/protocol/openid-connect/auth";
+        authorizationURL += "?client_id=tehranch-paano";
+        /*authorizationURL += "?client_id=paano-front3";*/
         authorizationURL += "&response_type=code";
         authorizationURL += "&scope=openid";
-        authorizationURL += "&redirect_uri=http://localhost:3000/admin/redirectoauth";
-        /*authorizationURL += "&redirect_uri=https://tehranch.com/admin/redirectoauth";*/
+        /*authorizationURL += "&redirect_uri=http://localhost:3000/redirectoauth.html";*/
+        authorizationURL += "&redirect_uri=https://tehranch.com/redirectoauth.html";
         authorizationURL += "&state=" + state;
         authorizationURL += "&code_challenge=" + codeChallenge;
         authorizationURL += "&code_challenge_method=S256";
@@ -71,17 +71,17 @@ const Login = () =>{
     function requestTokens() {
         var data = {
             "grant_type": "authorization_code",
+            "client_id": "tehranch-paano",
             /*"client_id": "paano-front3",*/
-            "client_id": "paano-front3",
             "code": localStorage.getItem("authCode"),
             "code_verifier": localStorage.getItem("codeVerifier"),
-            "redirect_uri":"http://localhost:3000/admin/redirectoauth"
-            /*"redirect_uri":"https://tehranch.com/admin/redirectoauth"*/
+            /*"redirect_uri":"http://localhost:3000/redirectoauth.html"*/
+            "redirect_uri":"https://tehranch.com/redirectoauth.html"
         };
         console.log(data);
         axios
-            .post("http://192.168.43.22:8080/auth/realms/paano-realm3/protocol/openid-connect/token", data ,
-           /* .post("https://tehranch.com/auth/realms/tehranch-realm/protocol/openid-connect/token", data ,*/
+            /*.post("http://192.168.43.22:8080/auth/realms/paano-realm3/protocol/openid-connect/token", data ,*/
+            .post("https://tehranch.com/auth/realms/tehranch-realm/protocol/openid-connect/token", data ,
                 {
                     headers : {
                         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
