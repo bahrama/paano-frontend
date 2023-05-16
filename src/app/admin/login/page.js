@@ -28,7 +28,7 @@ const Login = () =>{
     function generateCodeVerifier() {
         var returnValue = "";
         var randomByteArray = new Uint8Array(32);
-        window.crypto.getRandomValues(randomByteArray);
+        crypto.getRandomValues(randomByteArray);
 
         returnValue = base64url(randomByteArray);
 
@@ -69,7 +69,7 @@ const Login = () =>{
         authorizationURL += "&code_challenge=" + codeChallenge;
         authorizationURL += "&code_challenge_method=S256";
         console.log(authorizationURL);
-        window.open(authorizationURL, 'authorizationRequestWindow', 'width=800,height=600,left=200,top=200');
+        open(authorizationURL, 'authorizationRequestWindow', 'width=800,height=600,left=200,top=200');
     }
 
 
