@@ -38,11 +38,11 @@ const Login = () => {
         axios
             .post("https://tehranch.com/api/user/login", data)
             .then((response) => {
-                toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'});
+                toast.current.show({severity: 'success', summary: 'ورود با موفقیت انجام شد .'});
                 console.log(response.data.token);
                 setCookie('auth',response.data.token.replace("Bearer ", "") , {maxAge: 60 * 60 * 24 * 30 });
                 setTimeout(function() {
-                    router.push('/');
+                    location.reload();
                 }, 2000);
                 }
             )

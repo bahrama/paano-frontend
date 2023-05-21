@@ -8,7 +8,6 @@ import { useSessionStorage } from 'primereact/hooks';
 import axios from "axios";
 const Header = () =>{
     const [userInfo, setUserInfo] = useSessionStorage('', 'userInfo');
-    const { data: session } = useSession();
     const [humbergerMenuState,setHumbergerMenuState] = useState(true);
     const [sideBarMenuState,setSideBarMenuState] = useState(true);
     const [humbergerMenuExpand1,setHumbergerMenuExpand1] = useState('w-5.5 rounded-xs relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300');
@@ -52,6 +51,10 @@ const Header = () =>{
             setSideBar('mtop50 w-full text-sm before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:text-5.5 absolute left-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-luster-2 bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-auto before:top-0 before:left-2 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-[\'\\f0d8\'] sm:-mr-6 before:sm:left-3 lg:absolute lg:mt-2 lg:block lg:cursor-pointer opacity-0 pointer-events-none transform-dropdown');
             setSideBarMenuState(true);
     });
+    const exitApp = () =>{
+        deleteCookie('auth');
+        setUserInfo('');
+    }
     const findUserByCookie = () => {
         console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
         console.log(getCookie('auth'));
@@ -72,22 +75,17 @@ const Header = () =>{
             )
             .catch((error) =>{
                 console.log(error.response.data.message);
+                exitApp();
                 }
             );
     }
     useEffect(() => {
-        if(userInfo===''){
             findUserByCookie();
-        }
         console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         console.log(userInfo);
         console.log("signWithGoogleFirst");
-    }, [userInfo]);
-    const exitApp = () =>{
-        signOut();
-        deleteCookie('auth');
-        setUserInfo('');
-    }
+    }, []);
+
    const showProfile = () =>{
        if(userInfo===''){
            return(

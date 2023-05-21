@@ -17,7 +17,6 @@ import { useSessionStorage } from 'primereact/hooks';
 const Register = () => {
     const [userInfo, setUserInfo] = useSessionStorage('', 'userInfo');
     const router = useRouter();
-    const { data: session } = useSession();
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState({});
     const [signWithGoogleFirst , setSignWithGoogleFirst] = useState(false);
@@ -27,25 +26,13 @@ const Register = () => {
         password: ''
     }
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
-    const googleSighIn = () =>{
-        console.log("GGGGGGGGGogle");
-       // e.preventDefault();
-        signIn("google", { callbackUrl: "https://tehranch.com/register" });
-    };
+
     useEffect(() => {
         if(getCookie('auth')!=null)
         {
             router.push('/');
         }
-        if(session!=null && !signWithGoogleFirst){
-            onSubmitWithGoogle({
-                email : session.user.email,
-                password : '111111',
-                confirmPassword:'111111',
-                provider:'Google'
-            });
-        }
-    }, [session]);
+    }, []);
     const backImg = '/assets/img/curved-images/curved14.jpg';
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
@@ -69,81 +56,7 @@ const Register = () => {
         setShowMessage(true);
         reset();
     };
-    const findUserByCookie = () => {
-        console.log("KKKKKKKKKKKKKKKKKKKKKKKKKKKK");
-        console.log(getCookie('auth'));
-        axios
-            .post("https://tehranch.com/api/user", {} ,
-                {
-                    headers : {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer ' + getCookie('auth')
-                    }
-                })
-            .then((response) =>
-                {
-                    console.log("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
-                    console.log(response.data);
-                    setUserInfo(response.data.username)
-                }
-            )
-            .catch((error) =>{
-                    console.log(error.response.data.message);
-                }
-            );
-    }
-    const onSubmitWithGoogle = (data) => {
-        console.log(data);
-        setFormData(data);
-        axios
-            .post("https://tehranch.com/api/user/register", data)
-            .then((response) =>
-            {
-                toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'})
-                setTimeout(function() {
-                    router.push('/');
-                }, 2000);
-                axios
-                    .post("https://tehranch.com/api/user/login", data)
-                    .then((response) => {
-                            console.log(response.data.token);
-                            setCookie('auth',response.data.token.replace("Bearer ", ""), {maxAge: 60 * 60 * 24 });
-                            router.push('/');
-                        }
-                    )
-                    .catch((error) =>
-                    {
-                        toast.current.show({severity: 'error', summary: error.response.data.message, sticky: true});
-                    }
-                    );
-            }
-            )
-            .catch((error) =>{
-                    if(error.response.data.statusCode===555){
-                        setSignWithGoogleFirst(true);
-                        axios
-                            .post("https://tehranch.com/api/user/login", data)
-                            .then((response) => {
-                                toast.current.show({severity: 'success', summary: 'خوش آمدید .'})
-                                    setCookie('auth',response.data.token.replace("Bearer ", ""), {maxAge: 60 * 60 * 24 * 30 });
-                                setTimeout(function() {
-                                    router.push('/');
-                                }, 2000);
-                                }
-                            )
-                            .catch((error) =>
-                                {
-                                    //toast.current.show({severity: 'error', summary: error.response.data.message, sticky: true});
-                                }
-                            );
-                    }
 
-                }
-            );
-        findUserByCookie();
-        setShowMessage(true);
-        reset();
-    };
     return (
         <main className="mt-0 transition-all duration-200 ease-soft-in-out">
             <Toast ref={toast} />
@@ -174,7 +87,7 @@ const Register = () => {
                                 </div>
                                 <div className="flex flex-wrap px-3 -mx-3 sm:px-6 xl:px-12">
                                     <div className="w-3/12 max-w-full px-1 ml-auto flex-0">
-                                        <button onClick={googleSighIn} className="inline-block h-16 w-full mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75"
+                                        <button disabled className="inline-block h-16 w-full mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 border-solid rounded-lg shadow-none cursor-pointer hover:scale-102 leading-pro text-xs ease-soft-in tracking-tight-soft bg-150 bg-x-25 hover:bg-transparent hover:opacity-75"
                                            >
                                             <img src="/google_cover.jpg" className="w-full h-full"/>
                                         </button>
