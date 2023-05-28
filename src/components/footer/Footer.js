@@ -9,14 +9,11 @@ const Footer = () =>{
                 <div className="w-auto px-2">
                     <h5 className="border-b-2 border-luster-1 text-white">لینک های مرتبط</h5>
                     <div className="grid grid-cols-3 gap-2 pt-2">
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
-                        <img className="w-20 h-20" src="/image/6.jpg"/>
+                        <img className="w-20 h-20" src="/assets/img/logos/sanat.png.png" alt="وزارت صنعت و معدن تجارت"/>
+                        <img className="w-20 h-20" src="/assets/img/logos/asnafiran.png.png" alt="اتاق اصناف ایران"/>
+                        <img className="w-20 h-20" src="/assets/img/logos/asnafteh.png.png" alt="اتاق اصناف تهران"/>
+                        <img className="w-20 h-20" src="/assets/img/logos/taz.png.png" alt="تعزیرات حکومتی"/>
+                        <img className="w-20 h-20" src="/assets/img/logos/ekh.png.png" alt="شورای حل اختلاف"/>
                     </div>
                 </div>
                 <div className="px-2 sm:pt-5 md:py-4 lg:py-0 ">
