@@ -5,7 +5,10 @@ import React, {useEffect, useRef, useState} from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
+import { FileUpload } from 'primereact/fileupload';
 import { Dropdown } from 'primereact/dropdown';
+import { ProgressBar } from 'primereact/progressbar';
+import { Tag } from 'primereact/tag';
 import { Calendar } from 'primereact/calendar';
 import { Password } from 'primereact/password';
 import { Checkbox } from 'primereact/checkbox';
@@ -15,23 +18,27 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { classNames } from 'primereact/utils';
 import { MultiSelect } from 'primereact/multiselect';
 import { Editor } from 'primereact/editor';
+import axios from "axios";
+import {getCookie} from "cookies-next";
+import {Toast} from "primereact/toast";
 
 const Seller = () => {
+    const [totalSize, setTotalSize] = useState(0);
+    const fileUploadRef = useRef(null);
+    const [formData, setFormData] = useState({});
     const toast = useRef(null);
     const panelsSelectItems = [
-        {label: 'فیروزه ای', value: 'فیروزه ای'},
-        {label: 'طلایی', value: 'طلایی'},
-        {label: 'نقره ای', value: 'نقره ای'},
-        {label: 'برنزی', value: 'برنزی'},
-        {label: 'عادی', value: 'عادی'}
+        {label: 'فیروزه ای', value: 'Firoze'},
+        {label: 'طلایی', value: 'Gold'},
+        {label: 'نقره ای', value: 'Silver'},
+        {label: 'برنزی', value: 'Bronze'},
+        {label: 'عادی', value: 'Adi'}
     ];
     const fieldTypes = [
-        {name: 'لوستر بلوری', code: 'لوستر بلوری'},
-        {name: 'لوستر پوسته ای', code: 'لوستر پوسته ای'},
-        {name: 'لوستر سانتی', code: 'لوستر سانتی'},
-        {name: 'لوستر حبابی', code: 'لوستر حبابی'},
-        {name: 'تک شعله', code: 'تک شعله'},
-        {name: 'چراغ های باغی', code: 'چراغ های باغی'}
+        {name: 'لوستر بلوری', code: 'LUSTERBLURY'},
+        {name: 'لوستر چوبی', code: 'LUSTERWOOD'},
+        {name: 'لوستر سانتی', code: 'LUSTERSANTI'},
+        {name: 'لوستر حبابی', code: 'LUSTERBOBLE'}
     ];
     const shopOwnerShip = [
         {label: 'مالکیت', value: 'مالکیت'},
@@ -40,83 +47,209 @@ const Seller = () => {
         {label: 'استیجاری', value: 'استیجاری'}
     ];
     const orderRegister = [
-        {label: 'صاحب پروانه', value: 'صاحب پروانه'},
-        {label: 'مستاجر', value: 'مستاجر'}
+        {label: 'صاحب پروانه', value: 'SAHEB_PARVANEH'},
+        {label: 'مستاجر', value: 'MOSTAGER'}
     ];
     const hasMostajer = [
-        {label: 'دارد', value: 'دارد'},
-        {label: 'ندارد', value: 'ندارد'}
+        {label: 'دارد', value: true},
+        {label: 'ندارد', value: false}
     ];
     const mojtame = [
         {label: 'مجتمع 1', value: 'مجتمع 1'},
         {label: 'مجتمع 2', value: 'مجتمع 2'}
     ];
     const defaultValues = {
+        mobile: '',
+        ownerName: '',
+        shopNamePersian: '',
+        shopNameEnglish: '',
+        ssn: '',
+        panelType: 'Adi',
+        ownerBirthday: '',
+        about: '',
+        tagdir: '',
+        instagram: '',
+        telegram: '',
+        phone: '',
+        website: '',
         email: '',
-        password: ''
+        fax: '',
+        salesManagerName: '',
+        salesManagerMobile: '',
+        address: '',
+        vageDar: '',
+        postCode: '',
+        metaDescription: '',
+        metaKeywords: '',
+        hasMalekiat: false,
+        orderRegister: 'SAHEB_PARVANEH',
+        hasMostager: true,
+        mohlateEjare: '',
+        mastajerName: '',
+        mostagerBirthDay: '',
+        mastajerSsn: '',
+        mastajerMobile: '',
+        shomarehJavaz: '',
+        tarikhEtebar: '',
+        hasMobasher: false,
+        mobasherName: '',
+        rabetName: '',
+        semateRabet: '',
+        rabetMobile: '',
+        socialMobile: '',
+        mojtame: ''
     }
     const { control, formState: { errors }, handleSubmit, reset } = useForm({ defaultValues });
     const getFormErrorMessage = (name) => {
         return errors[name] && <small className="p-error">{errors[name].message}</small>
     };
+    let formData1 = new FormData();
+    let formData2 = new FormData();
+    let formData3 = new FormData();
+    let formData4 = new FormData();
+    let formData5 = new FormData();
 
+    const onSubmit = (data) => {
+        console.log(data);
+        setFormData(data);
+        axios
+            .post("http://localhost:8084/api/admin/add", data ,
+                {
+                    headers : {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getCookie('auth-keycloak')
+                    }
+                })
+            .then((response) =>
+                toast.current.show({severity: 'success', summary: 'ثبت نام با موفقیت انجام شد .'})
+            )
+            .catch((error) => console.log(error));
+    };
+        const upErr = () =>{
+            toast.current.show({severity: 'error', summary: 'reeeee', sticky: true});
+        }
 
+    const onTemplateUpload = (e) => {
+        let _totalSize = 0;
+        e.files.forEach(file => {
+            _totalSize += (file.size || 0);
+        });
+
+        setTotalSize(_totalSize);
+        toast.current.show({severity: 'info', summary: 'Success', detail: 'File Uploaded'});
+    }
+
+    const onTemplateRemove = (file, callback) => {
+        setTotalSize(totalSize - file.size);
+        callback();
+    }
+
+    const onTemplateClear = () => {
+        setTotalSize(0);
+    }
+
+    const onBasicUpload = () => {
+        toast.current.show({severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode'});
+    }
+
+    const onBasicUploadAuto = () => {
+        toast.current.show({severity: 'info', summary: 'Success', detail: 'File Uploaded with Auto Mode'});
+    }
+    const headerTemplate = (options) => {
+        const { className, chooseButton, uploadButton, cancelButton } = options;
+        const value = totalSize/10000;
+        const formatedValue = fileUploadRef && fileUploadRef.current ? fileUploadRef.current.formatSize(totalSize) : '0 B';
+
+        return (
+            <div className={className} style={{backgroundColor: 'transparent', display: 'flex', alignItems: 'center'}}>
+                {chooseButton}
+                {uploadButton}
+                {cancelButton}
+                <ProgressBar value={value} displayValueTemplate={() => `${formatedValue} / 1 MB`} style={{width: '300px', height: '20px', marginLeft: 'auto'}}></ProgressBar>
+            </div>
+        );
+    }
+
+    const itemTemplate = (file, props) => {
+        return (
+            <div className="flex align-items-center flex-wrap">
+                <div className="flex align-items-center" style={{width: '40%'}}>
+                    <img alt={file.name} role="presentation" src={file.objectURL} width={100} />
+                    <span className="flex flex-column text-left ml-3">
+                        {file.name}
+                        <small>{new Date().toLocaleDateString()}</small>
+                    </span>
+                </div>
+                <Tag value={props.formatSize} severity="warning" className="px-3 py-2" />
+                <Button type="button" icon="pi pi-times" className="p-button-outlined p-button-rounded p-button-danger ml-auto" onClick={() => onTemplateRemove(file, props.onRemove)} />
+            </div>
+        )
+    }
+
+    const emptyTemplate = () => {
+        return (
+            <div className="flex align-items-center flex-column">
+                <i className="pi pi-image mt-3 p-5" style={{'fontSize': '5em', borderRadius: '50%', backgroundColor: 'var(--surface-b)', color: 'var(--surface-d)'}}></i>
+                <span style={{'fontSize': '1.2em', color: 'var(--text-color-secondary)'}} className="my-5">Drag and Drop Image Here</span>
+            </div>
+        )
+    }
+    const chooseOptions = {icon: 'pi pi-fw pi-images', iconOnly: true, className: 'custom-choose-btn p-button-rounded p-button-outlined'};
+    const uploadOptions = {icon: 'pi pi-fw pi-cloud-upload', iconOnly: true, className: 'custom-upload-btn p-button-success p-button-rounded p-button-outlined'};
+    const cancelOptions = {icon: 'pi pi-fw pi-times', iconOnly: true, className: 'custom-cancel-btn p-button-danger p-button-rounded p-button-outlined'};
     return(
         <>
             <Dashboard>
-                <form role="form text-left">
+                <Toast ref={toast} />
+                <form role="form text-left" onSubmit={handleSubmit(onSubmit)}>
                 <section className=" container mx-auto px-10 font-bold mt-0 md:mt-20 font-vazir">
                     <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                         <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>موبایل </label>
+                                <label htmlFor="mobile" className={classNames({ 'p-error': !!errors.email })}>موبایل </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mobile" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                            {getFormErrorMessage('email')}
+                            {getFormErrorMessage('mobile')}
                         </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نام ونام خانوادگی صاحب واحد صنفی </label>
+                                <label htmlFor="ownerName" className={classNames({ 'p-error': !!errors.email })}>نام ونام خانوادگی صاحب واحد صنفی </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="ownerName" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                            {getFormErrorMessage('email')}
+                            {getFormErrorMessage('ownerName')}
                             </div>
 
                         <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نام فروشگاه فارسی</label>
+                                <label htmlFor="shopNamePersian" className={classNames({ 'p-error': !!errors.email })}>نام فروشگاه فارسی</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="shopNamePersian" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                            {getFormErrorMessage('email')}
+                            {getFormErrorMessage('shopNamePersian')}
                         </div>
 
                         <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نام فروشگاه انگلیسی </label>
+                                <label htmlFor="shopNameEnglish" className={classNames({ 'p-error': !!errors.email })}>نام فروشگاه انگلیسی </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="shopNameEnglish" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                            {getFormErrorMessage('email')}
+                            {getFormErrorMessage('shopNameEnglish')}
                         </div>
                     </div>
                 </section>
@@ -125,54 +258,50 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>کد ملی </label>
+                                <label htmlFor="ssn" className={classNames({ 'p-error': !!errors.email })}>کد ملی </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="ssn" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('ssn')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نوع پنل</label>
+                                <label htmlFor="panelType" className={classNames({ 'p-error': !!errors.email })}>نوع پنل</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="panelType" control={control}
                                             render={({ field, fieldState }) => (
                                                 <Dropdown id={field.name} value={field.value} options={panelsSelectItems} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('panelType')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نوع فعالیت</label>
+                                <label htmlFor="fieldType" className={classNames({ 'p-error': !!errors.email })}>نوع فعالیت</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="fieldType" control={control}
                                             render={({ field, fieldState }) => (
-                                                <MultiSelect optionLabel="name" optionValue="code" id={field.name} value={field.value} options={fieldTypes} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>
+                                                <InputTextarea rows={5} cols={30}  id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}} />
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('fieldType')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>تاریخ تولد فروشنده</label>
+                                <label htmlFor="ownerBirthday" className={classNames({ 'p-error': !!errors.email })}>تاریخ تولد فروشنده</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="ownerBirthday" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('ownerBirthday')}
                             </div>
                         </div>
                     </section>
@@ -181,15 +310,14 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-1 gap-2 md:grid md:grid-cols-1">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>درباره ما</label>
+                                <label htmlFor="about" className={classNames({ 'p-error': !!errors.email })}>درباره ما</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="about" control={control}
                                             render={({ field, fieldState }) => (
-                                                <Editor style={{height:'320px'}} id={field.name} value={field.value} onTextChange={(e) => field.onTextChange(field.value)} />
+                                                <InputTextarea rows={5} cols={30}  id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}} />
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('about')}
                             </div>
                         </div>
                     </section>
@@ -198,15 +326,14 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-1 gap-2 md:grid md:grid-cols-1">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>تقدیرنامه ها</label>
+                                <label htmlFor="tagdir" className={classNames({ 'p-error': !!errors.email })}>تقدیرنامه ها</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="tagdir" control={control}
                                             render={({ field, fieldState }) => (
-                                                <Editor style={{height:'320px'}} id={field.name} value={field.value} onTextChange={(e) => field.onTextChange(field.value)} />
+                                                <InputTextarea rows={5} cols={30}  id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}} />
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('tagdir')}
                             </div>
                         </div>
                     </section>
@@ -215,52 +342,48 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>اینستاگرام </label>
+                                <label htmlFor="instagram" className={classNames({ 'p-error': !!errors.email })}>اینستاگرام </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="instagram" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('instagram')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>تلگرام</label>
+                                <label htmlFor="telegram" className={classNames({ 'p-error': !!errors.email })}>تلگرام</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="telegram" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>                                            )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('telegram')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>شماره تلفن</label>
+                                <label htmlFor="phone" className={classNames({ 'p-error': !!errors.email })}>شماره تلفن</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="phone" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>                                            )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('phone')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>وبسایت</label>
+                                <label htmlFor="website" className={classNames({ 'p-error': !!errors.email })}>وبسایت</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="website" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('website')}
                             </div>
                         </div>
                     </section>
@@ -272,7 +395,6 @@ const Seller = () => {
                                 <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>ایمیل </label>
                                 <br/>
                                 <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
@@ -282,39 +404,36 @@ const Seller = () => {
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>فکس</label>
+                                <label htmlFor="fax" className={classNames({ 'p-error': !!errors.email })}>فکس</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="fax" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>                                            )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('fax')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نام مدیر فروش</label>
+                                <label htmlFor="salesManagerName" className={classNames({ 'p-error': !!errors.email })}>نام مدیر فروش</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="salesManagerName" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>                                            )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('salesManagerName')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>شماره مدیر فروش</label>
+                                <label htmlFor="salesManagerMobile" className={classNames({ 'p-error': !!errors.email })}>شماره مدیر فروش</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="salesManagerMobile" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('salesManagerMobile')}
                             </div>
                         </div>
                     </section>
@@ -323,52 +442,48 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>آدرس </label>
+                                <label htmlFor="address" className={classNames({ 'p-error': !!errors.email })}>آدرس </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="address" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputTextarea rows={5} cols={30}  id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}} />
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('address')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>واقع در</label>
+                                <label htmlFor="vageDar" className={classNames({ 'p-error': !!errors.email })}>واقع در</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="vageDar" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>                                            )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('vageDar')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>کد پستی</label>
+                                <label htmlFor="postCode" className={classNames({ 'p-error': !!errors.email })}>کد پستی</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="postCode" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>                                            )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('postCode')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>meta description</label>
+                                <label htmlFor="metaDescription" className={classNames({ 'p-error': !!errors.email })}>meta description</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="metaDescription" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputTextarea rows={5} cols={30}  id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}} />
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('metaDescription')}
                             </div>
                         </div>
                     </section>
@@ -377,52 +492,48 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>meta keywords </label>
+                                <label htmlFor="metaKeywords" className={classNames({ 'p-error': !!errors.email })}>meta keywords </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="metaKeywords" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputTextarea rows={5} cols={30}  id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}} />
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('metaKeywords')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>مالکیت مغازه</label>
+                                <label htmlFor="hasMalekiat" className={classNames({ 'p-error': !!errors.email })}>مالکیت مغازه</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="hasMalekiat" control={control}
                                             render={({ field, fieldState }) => (
-                                                <Dropdown id={field.name} value={field.value} options={shopOwnerShip} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>                                          )} />
+                                                <Dropdown id={field.name} value={field.value} options={hasMostajer} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>                                          )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('hasMalekiat')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>ثبت سفارش از سوی</label>
+                                <label htmlFor="orderRegister" className={classNames({ 'p-error': !!errors.email })}>ثبت سفارش از سوی</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="orderRegister" control={control}
                                             render={({ field, fieldState }) => (
                                                 <Dropdown id={field.name} value={field.value} options={orderRegister} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>                                          )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('orderRegister')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>مستاجر</label>
+                                <label htmlFor="hasMostager" className={classNames({ 'p-error': !!errors.email })}>مستاجر</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="hasMostager" control={control}
                                             render={({ field, fieldState }) => (
                                                 <Dropdown id={field.name} value={field.value} options={hasMostajer} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('hasMostager')}
                             </div>
                         </div>
                     </section>
@@ -431,54 +542,50 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>مهلت اجاره </label>
+                                <label htmlFor="mohlateEjare" className={classNames({ 'p-error': !!errors.email })}>مهلت اجاره </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mohlateEjare" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('mohlateEjare')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نام و نام خانوادگی مستاجر </label>
+                                <label htmlFor="mastajerName" className={classNames({ 'p-error': !!errors.email })}>نام و نام خانوادگی مستاجر </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mastajerName" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('mastajerName')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>تاریخ تولد مستاجر</label>
+                                <label htmlFor="mostagerBirthDay" className={classNames({ 'p-error': !!errors.email })}>تاریخ تولد مستاجر</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mostagerBirthDay" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('mostagerBirthDay')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>کد ملی مستاجر </label>
+                                <label htmlFor="mastajerSsn" className={classNames({ 'p-error': !!errors.email })}>کد ملی مستاجر </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mastajerSsn" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('mastajerSsn')}
                             </div>
                         </div>
                     </section>
@@ -487,54 +594,50 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>موبایل مستاجر </label>
+                                <label htmlFor="mastajerMobile" className={classNames({ 'p-error': !!errors.email })}>موبایل مستاجر </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mastajerMobile" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('mastajerMobile')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>شماره جواز</label>
+                                <label htmlFor="shomarehJavaz" className={classNames({ 'p-error': !!errors.email })}>شماره جواز</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="shomarehJavaz" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('shomarehJavaz')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>تاریخ اعتبار</label>
+                                <label htmlFor="tarikhEtebar" className={classNames({ 'p-error': !!errors.email })}>تاریخ اعتبار</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="tarikhEtebar" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('tarikhEtebar')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>مباشر</label>
+                                <label htmlFor="hasMobasher" className={classNames({ 'p-error': !!errors.email })}>مباشر</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="hasMobasher" control={control}
                                             render={({ field, fieldState }) => (
                                                 <Dropdown id={field.name} value={field.value} options={hasMostajer} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('hasMobasher')}
                             </div>
                         </div>
                     </section>
@@ -543,54 +646,50 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نام مباشر </label>
+                                <label htmlFor="mobasherName" className={classNames({ 'p-error': !!errors.email })}>نام مباشر </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mobasherName" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('mobasherName')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>نام رابط</label>
+                                <label htmlFor="rabetName" className={classNames({ 'p-error': !!errors.email })}>نام رابط</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="rabetName" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('rabetName')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>سمت رابط</label>
+                                <label htmlFor="semateRabet" className={classNames({ 'p-error': !!errors.email })}>سمت رابط</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="semateRabet" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('semateRabet')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>موبایل رابط </label>
+                                <label htmlFor="rabetMobile" className={classNames({ 'p-error': !!errors.email })}>موبایل رابط </label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="rabetMobile" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('rabetMobile')}
                             </div>
                         </div>
                     </section>
@@ -599,32 +698,92 @@ const Seller = () => {
                         <div className="lg:grid lg:grid-cols-2 gap-2 md:grid md:grid-cols-2">
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>موبایل شبکه مجازی</label>
+                                <label htmlFor="socialMobile" className={classNames({ 'p-error': !!errors.email })}>موبایل شبکه مجازی</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="socialMobile" control={control}
                                             render={({ field, fieldState }) => (
                                                 <InputText id={field.name} {...field}  className={classNames({ 'p-invalid': fieldState.invalid })} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('socialMobile')}
                             </div>
 
                             <div>
                                 <span style={{direction:"ltr"}}>
-                                <label htmlFor="email" className={classNames({ 'p-error': !!errors.email })}>مجتمع تجاری</label>
+                                <label htmlFor="mojtame" className={classNames({ 'p-error': !!errors.email })}>مجتمع تجاری</label>
                                 <br/>
-                                <Controller name="email" control={control}
-                                            rules={{ required: 'ایمیل را وارد نمایید', pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'فرمت ایمیل صحیح نمی باشد' }}}
+                                <Controller name="mojtame" control={control}
                                             render={({ field, fieldState }) => (
                                                 <Dropdown id={field.name} value={field.value} options={mojtame} onChange={(e) => field.onChange(e.value)} style={{width:'100%'}}/>
                                             )} />
                             </span>
-                                {getFormErrorMessage('email')}
+                                {getFormErrorMessage('mojtame')}
                             </div>
-
+                            <div>
+                                <span style={{direction:"ltr"}}>
+                                <label>عکس بالای صفحه</label>
+                                <br/>
+{/*                                 <FileUpload mode="basic" name="file" url="http://localhost:8084/api/admin/uploadImageTop" accept="image/jpeg" maxFileSize={150000} chooseLabel="Browse" auto onError={upErr} onValidationFail={upErr}/>
+                                    <img src="http://localhost:8084/api/admin/imageTop"/>*/}
+                                    <FileUpload ref={fileUploadRef} name="file" url="http://localhost:8084/api/admin/uploadImageTop" accept="image/jpeg" maxFileSize={150000} chooseLabel="Browse" onError={upErr} onValidationFail={upErr}
+                                                onUpload={onTemplateUpload} onError={onTemplateClear} onClear={onTemplateClear}
+                                                headerTemplate={headerTemplate} itemTemplate={itemTemplate} emptyTemplate={emptyTemplate}
+                                                chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions} />
+                            </span>
+                            </div>
                         </div>
                     </section>
+
+                    <section className=" container mx-auto px-10 font-bold mt-0 md:mt-20 font-vazir">
+                        <div className="lg:grid lg:grid-cols-4 gap-2 md:grid md:grid-cols-2">
+                            <div>
+                                <span style={{direction:"ltr"}}>
+                                <label>عکس دوم </label>
+                                <br/>
+                                                                        <FileUpload ref={fileUploadRef} name="file" url="http://localhost:8084/api/admin/uploadImageTop2" accept="image/jpeg" maxFileSize={150000} chooseLabel="Browse" onError={upErr} onValidationFail={upErr}
+                                                                                    onUpload={onTemplateUpload} onError={onTemplateClear} onClear={onTemplateClear}
+                                                                                    headerTemplate={headerTemplate} itemTemplate={itemTemplate} emptyTemplate={emptyTemplate}
+                                                                                    chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions} />
+                            </span>
+                            </div>
+
+                            <div>
+                                <span style={{direction:"ltr"}}>
+                                <label>عکس لوگو</label>
+                                <br/>
+                             <FileUpload ref={fileUploadRef} name="file" url="http://localhost:8084/api/admin/uploadImageLogo" accept="image/jpeg" maxFileSize={150000} chooseLabel="Browse" onError={upErr} onValidationFail={upErr}
+                                         onUpload={onTemplateUpload} onError={onTemplateClear} onClear={onTemplateClear}
+                                         headerTemplate={headerTemplate} itemTemplate={itemTemplate} emptyTemplate={emptyTemplate}
+                                         chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions} />
+                            </span>
+                            </div>
+
+                            <div>
+                                <span style={{direction:"ltr"}}>
+                                <label>عکس درباره ما</label>
+                                <br/>
+                                                                 <FileUpload ref={fileUploadRef} name="file" url="http://localhost:8084/api/admin/uploadImageAbout" accept="image/jpeg" maxFileSize={150000} chooseLabel="Browse" onError={upErr} onValidationFail={upErr}
+                                                                             onUpload={onTemplateUpload} onError={onTemplateClear} onClear={onTemplateClear}
+                                                                             headerTemplate={headerTemplate} itemTemplate={itemTemplate} emptyTemplate={emptyTemplate}
+                                                                             chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions} />
+                            </span>
+                            </div>
+
+                            <div>
+                                <span style={{direction:"ltr"}}>
+                                <label>عکس گواهینامه </label>
+                                <br/>
+                                       <FileUpload ref={fileUploadRef} name="file" url="http://localhost:8084/api/admin/uploadImageGovahi" accept="image/jpeg" maxFileSize={150000} chooseLabel="Browse" onError={upErr} onValidationFail={upErr}
+                                                   onUpload={onTemplateUpload} onError={onTemplateClear} onClear={onTemplateClear}
+                                                   headerTemplate={headerTemplate} itemTemplate={itemTemplate} emptyTemplate={emptyTemplate}
+                                                   chooseOptions={chooseOptions} uploadOptions={uploadOptions} cancelOptions={cancelOptions} />
+                            </span>
+                            </div>
+                        </div>
+                    </section>
+                    <div className="text-center">
+                        <Button type="submit" label="ثبت نام" className="p-button-outlined p-button-success"  style={{width:'100%'}}/>
+                    </div>
                 </form>
             </Dashboard>
         </>
