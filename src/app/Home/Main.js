@@ -131,7 +131,7 @@ const Main = () =>{
               </Link>
               <Link href={'/'}>
                     <div class="basis-1/3 md:h-96 md:py-3  w-full">
-                            <img className="lg:mr-0 h-full rounded-lg mix-blend-multiply w-full" src="/image/partmentship.jpg"/>
+                            <img className="lg:mr-0 h-full rounded-lg mix-blend-multiply w-full" src="/image/image-for-members.jpg"/>
                             <h5 className='text-center border-2'>اعضای صنفی اتحادیه</h5>
                     </div>
               </Link>
@@ -168,13 +168,13 @@ const Main = () =>{
                       </Link>
                       <Link href={'/'}>
                           <div class="basis-1/3 md:h-96 md:py-3  w-full">
-                              <img className="lg:mr-0 h-full rounded-lg mix-blend-multiply w-full" src="/image/pic/banner2.jpg"/>
+                              <img className="lg:mr-0 h-full rounded-lg mix-blend-multiply w-full" src="/image/calender.jpg"/>
                               <h5 className='text-center border-2'>خبرنامه نمایشگاهی</h5>
                           </div>
                       </Link>
                       <Link href={'/'}>
                           <div class=" basis-1/3 md:h-96 md:py-3 w-full">
-                              <img className="lg:mr-0 h-full rounded-lg w-full object-cover" src="/image/pic/banner3.jpg"/>
+                              <img className="lg:mr-0 h-full rounded-lg w-full " src="/image/pic/banner3.jpg"/>
                               <h5 className='text-center border-2'>دانستنی ها</h5>
                           </div>
                       </Link>
