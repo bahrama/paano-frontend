@@ -238,4 +238,18 @@
         @apply  font-vazir
     }
     /* preside dashboard design start */
+
+    /* Multi Product design start */
+    .product-form-parent{
+        @apply
+        px-10 flex flex-col   justify-center justify-items-center
+    }
+    .product-form-parent div{
+        @apply mx-auto
+    }
+    .product-btn{
+        @apply
+        border-none px-3 py-3 rounded-[5px] shadow-3xl
+    }
+    /* Multi Product design end */
 }

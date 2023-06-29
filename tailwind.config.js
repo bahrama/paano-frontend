@@ -46,6 +46,9 @@ module.exports = {
       },
       fontFamily: {
         'vazir' : 'Vazir'
+      },
+      boxShadow: {
+        '3xl': '0 0 10px rgba(0, 0, 0, 0.3)',
       }
     },
   },
