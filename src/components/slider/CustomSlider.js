@@ -19,18 +19,14 @@ const CustomSlider = () =>{
     ];
 
     const photoService = [
+
         {
-            "itemImageSrc": "https://www.tehranch.com/image/1.jpg",
-            "thumbnailImageSrc": "https://www.tehranch.com/image/1.jpg",
+            "itemImageSrc": "http://localhost:3000/image/13.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/13.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
-        },
-        {
-            "itemImageSrc": "https://www.tehranch.com/image/2.jpg",
-            "thumbnailImageSrc": "https://www.tehranch.com/image/2.jpg",
-            "alt": "Description for Image 1",
-            "title": "Title 1"
-        },
+        }
+        ,
         {
             "itemImageSrc": "https://www.tehranch.com/image/3.jpg",
             "thumbnailImageSrc": "https://www.tehranch.com/image/3.jpg",
@@ -38,15 +34,57 @@ const CustomSlider = () =>{
             "title": "Title 1"
         },
         {
-            "itemImageSrc": "https://www.tehranch.com/image/4.jpg",
-            "thumbnailImageSrc": "https://www.tehranch.com/image/4.jpg",
+            "itemImageSrc": "http://localhost:3000/image/12.png",
+            "thumbnailImageSrc": "http://localhost:3000/image/12.png",
             "alt": "Description for Image 1",
             "title": "Title 1"
         }
         ,
         {
-            "itemImageSrc": "https://www.tehranch.com/image/5.jpg",
-            "thumbnailImageSrc": "https://www.tehranch.com/image/5.jpg",
+            "itemImageSrc": "http://localhost:3000/image/11.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/11.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "itemImageSrc": "http://localhost:3000/image/10.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/10.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "itemImageSrc": "http://localhost:3000/image/14.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/14.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "itemImageSrc": "http://localhost:3000/image/15.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/15.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "itemImageSrc": "http://localhost:3000/image/16.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/16.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "itemImageSrc": "http://localhost:3000/image/17.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/17.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "itemImageSrc": "http://localhost:3000/image/18.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/18.jpg",
+            "alt": "Description for Image 1",
+            "title": "Title 1"
+        },
+        {
+            "itemImageSrc": "http://localhost:3000/image/19.jpg",
+            "thumbnailImageSrc": "http://localhost:3000/image/19.jpg",
             "alt": "Description for Image 1",
             "title": "Title 1"
         }
@@ -57,7 +95,7 @@ const CustomSlider = () =>{
     }
 
     const thumbnailTemplate = (item) => {
-        return <img className="h-auto sm:h-[500px] rounded-lg" src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }} />;
+        return <img className="h-auto sm:h-[500px] rounded-lg" src={item.thumbnailImageSrc} alt={item.alt} style={{ display: 'block' }}  />;
     }
 
     return (

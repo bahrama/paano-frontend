@@ -1,5 +1,5 @@
 "use client"
-import Dashboard from "@/components/dashboard-admin/Dashboard";
+import Dashboard from "@/components/dashboard-admin-seller/Dashboard";
 
 const News = () => {
 
@@ -8,7 +8,15 @@ const News = () => {
     return(
         <>
             <Dashboard>
-                newsssssssssss
+                <div>
+                    <button className={`bg-green-300 text-white px-10 py-3 cursor-pointer`}>افزودن محصول</button>
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
             </Dashboard>
         </>
     )

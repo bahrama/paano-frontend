@@ -5,7 +5,7 @@ import { Tag } from 'primereact/tag';
 // import { ProductService } from './service/ProductService';
 
 const ProductCarousel = ()=>{
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState();
     const responsiveOptions = [
         {
             breakpoint: '1199px',
@@ -23,6 +23,18 @@ const ProductCarousel = ()=>{
             numScroll: 1
         }
     ];
+    const fakeData = {
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'Bamboo Watch',
+        description: 'Product Description',
+        image: '10.jpg',
+        price: 65,
+        category: 'Accessories',
+        quantity: 24,
+        inventoryStatus: 'INSTOCK',
+        rating: 5
+    };
 
     const getSeverity = (product) => {
         switch (product.inventoryStatus) {
@@ -41,14 +53,17 @@ const ProductCarousel = ()=>{
     };
 
     useEffect(() => {
-        ProductService.getProductsSmall().then((data) => setProducts(data.slice(0, 9)));
+        setProducts(fakeData);
     }, []);
 
     const productTemplate = (product) => {
         return (
             <div className="border-1 surface-border border-round m-2 text-center py-5 px-3">
                 <div className="mb-3">
-                    <img src={`https://primefaces.org/cdn/primereact/images/product/${product.image}`} alt={product.name} className="w-6 shadow-2" />
+                    {
+                        console.log("inside of product image",product.image)
+                    }
+                    <img src="/image/user.jpeg" alt={product.name} className="w-6 shadow-2" />
                 </div>
                 <div>
                     <h4 className="mb-1">{product.name}</h4>
@@ -63,7 +78,7 @@ const ProductCarousel = ()=>{
         );
     };
     return(
-        <div className="card">
+        <div className="card w-full">
             <Carousel value={products} numVisible={3} numScroll={3} responsiveOptions={responsiveOptions} className="custom-carousel" circular
                       autoplayInterval={3000} itemTemplate={productTemplate} />
         </div>
