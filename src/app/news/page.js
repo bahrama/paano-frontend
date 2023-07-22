@@ -1,25 +1,7 @@
 "use client"
-import React, {useEffect} from "react";
+import React from "react";
 import CustomSlider from "@/components/slider/CustomSlider";
-import axios from "axios";
-
 const News=()=>{
-    const fakeData ={
-        newsUrl:"",
-        newsTitle:"",
-        newsImages:''
-    }
-
-    useEffect(()=>{
-        axios.get("http://localhost:8084/api/news",{
-            headers:{
-                "Content-Type":"application/json"
-            }
-        })
-            .then(response => console.log("axios news Response:",response))
-            .catch(error => console.log("error in news axios:",error))
-    },[])
-
     return(
         <>
         <section className="container mx-auto pt-0 px-10 mt-1 font-vazir">

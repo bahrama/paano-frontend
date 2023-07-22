@@ -1,9 +1,6 @@
 "use client"
 import React, {useState} from "react";
 import { InputText } from 'primereact/inputtext';
-import { GrCircleInformation } from "react-icons/gr";
-import { RiCalendarEventFill } from "react-icons/ri";
-import { TfiLayoutSlider ,TfiLayoutSliderAlt ,TfiLayoutListLargeImage} from "react-icons/tfi";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 
@@ -50,7 +47,7 @@ const Dashboard = ({children}) =>{
             <br/>
             <aside style={{top:`90px`}}
                    className={humbergerMenuExpand1}>
-                <div class="h-19.5 font-vazir">
+                <div class="h-19.5">
                     <i class="absolute top-0 right-0 hidden p-4 opacity-50 cursor-pointer fas fa-times text-slate-400 xl:hidden"
                        sidenav-close></i>
                     <a className="block px-8 py-6 m-0 text-sm whitespace-nowrap text-slate-700"
@@ -64,7 +61,7 @@ const Dashboard = ({children}) =>{
                 </div>
 
                 <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent"/>
-                <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full font-vazir">
+                <div class="items-center block w-auto max-h-screen overflow-auto h-sidenav grow basis-full">
                     <ul class="flex flex-col pl-0 mb-0">
                         <li className="mt-0.5 w-full bg-white">
                         <Link href={"/dashboard/profile"}>
@@ -102,42 +99,7 @@ const Dashboard = ({children}) =>{
                         </Link>
                         </li>
 
-                        <Link href={"/dashboard/sliders"}>
-                            <li className="w-full bg-white">
-                                <div className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                                    <div
-                                        class="shadow-soft-2xl ml-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                        <i className={`text-lg`}><TfiLayoutSlider/></i>
-                                    </div>
-                                    <span class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">اسلایدر</span>
-                                </div>
-                            </li>
-                        </Link>
-                        <Link href={"/dashboard/sliders"}>
-                            <li className="w-full bg-white">
-                                <div className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                                    <div
-                                        class="shadow-soft-2xl ml-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                        <i className={`text-lg`}><GrCircleInformation/></i>
-                                    </div>
-                                    <span class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">دانستنی ها</span>
-                                </div>
-                            </li>
-                        </Link>
-
-                        <Link href={"/dashboard/sliders"}>
-                            <li className="w-full bg-white">
-                                <div className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
-                                    <div
-                                        class="shadow-soft-2xl ml-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center fill-current stroke-0 text-center xl:p-2.5">
-                                        <i className={`text-lg`}><RiCalendarEventFill/></i>
-                                    </div>
-                                    <span class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">اخبار نمایشگاهی</span>
-                                </div>
-                            </li>
-                        </Link>
-
-                        <li className=" w-full bg-white">
+                        <li className="mt-0.5 w-full bg-white">
                             <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors">
                                 <div
                                     class="shadow-soft-2xl ml-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
@@ -147,7 +109,7 @@ const Dashboard = ({children}) =>{
                             </a>
                         </li>
 
-                        <li className=" w-full bg-white">
+                        <li className="mt-0.5 w-full bg-white">
                             <a className="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors"
                                href="../pages/rtl.html">
                                 <div
@@ -172,7 +134,7 @@ const Dashboard = ({children}) =>{
                                 <span class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">نیازمندی ها</span>
                             </a>
                         </li>
-                        <li className=" w-full bg-white">
+                        <li className="mt-0.5 w-full bg-white">
                             <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                                href="../pages/profile.html">
                                 <div
@@ -195,11 +157,11 @@ const Dashboard = ({children}) =>{
                                     </g>
                                 </div>
                                 <span
-                                    class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">نیروی کار</span>
+                                    class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">مورد1</span>
                             </a>
                         </li>
 
-                        <li className=" w-full bg-white">
+                        <li className="mt-0.5 w-full bg-white">
                             <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                                href="../pages/sign-in.html">
                                 <div
@@ -220,11 +182,11 @@ const Dashboard = ({children}) =>{
                                     </g>
                                 </div>
                                 <span
-                                    class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">املاک</span>
+                                    class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">مورد2</span>
                             </a>
                         </li>
 
-                        <li className=" w-full bg-white">
+                        <li className="mt-0.5 w-full bg-white">
                             <a className="py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors"
                                href="../pages/sign-up.html">
                                 <div
@@ -250,7 +212,7 @@ const Dashboard = ({children}) =>{
                                         </g>
                                     </g>
                                 </div>
-                                <span class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">ابزارالات</span>
+                                <span class="mr-1 duration-300 opacity-100 pointer-events-none ease-soft">مورد3</span>
                             </a>
                         </li>
                     </ul>
@@ -259,7 +221,7 @@ const Dashboard = ({children}) =>{
 
 
             <main
-                class="ease-soft-in-out  xl:mr-68.5 relative h-full  rounded-xl transition-all duration-200 font-vazir">
+                class="ease-soft-in-out  xl:mr-68.5 relative h-full  rounded-xl transition-all duration-200">
                 <nav
                     class="relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start"
                     navbar-main navbar-scroll="true">

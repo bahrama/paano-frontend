@@ -13,9 +13,8 @@ import {InputText} from "primereact/inputtext";
 import MultiProductForm from "@/components/multipartform/formproduct/MultiProductForm";
 import axios from "axios";
 const SellerProduct = ()=>{
-    useEffect(()=>{document.title="افزودن محصول جدید"},[])
     return (
-       <DashboardSeller path={"افزودن محصول"}>
+       <DashboardSeller>
         <section>
             <MultiProductForm/>
         </section>

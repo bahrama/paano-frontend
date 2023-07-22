@@ -63,7 +63,6 @@ const Dashboard = ({children}) =>{
                 .then((response) =>
                     {
                         console.log("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
-                        console.log("response request",response);
                         console.log(response.data);
                     }
                 )
