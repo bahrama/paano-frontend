@@ -152,8 +152,8 @@ const Main = () =>{
       <br/>
           <section>
               <div className={`container mx-auto px-10`}>
-                  <ProductCarousel/>
-                  {/*product  carousel*/}
+                  {/*<ProductCarousel/>*/}
+                  product  carousel
               </div>
           </section>
       <br/>
